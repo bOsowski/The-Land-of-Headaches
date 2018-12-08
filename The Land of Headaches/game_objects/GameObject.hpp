@@ -11,17 +11,15 @@
 #include <string>
 #include "BaseComponent.hpp"
 
-namespace headache{
-    class BaseComponent;
+class BaseComponent;
 
-    class GameObject {
+class GameObject {
 
-    public:
-        GameObject();
-        std::map<std::string, BaseComponent*> components;
-    };
+public:
+    GameObject();
+    std::map<std::string, BaseComponent*> components;
+};
 
-}
 
 
 

@@ -8,32 +8,30 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
-#include "GraphicsComponent.hpp"
+#include "TextureComponent.hpp"
 #include "GameObject.hpp"
 
-namespace headache{
-    class World {
+class World {
 
-    public:
+public:
 
-        World();
+    World();
 
-        std::vector<GameObject> gameObjects;
+    std::vector<GameObject> gameObjects;
 
-        void update();
+    void update();
 
-        void render();
+    void render();
 
-        bool isOpened();
+    bool isOpened();
 
-    private:
+private:
 
-        sf::RenderWindow window;
+    sf::RenderWindow window;
 
-        sf::Clock clock;
-        float deltaTime;
-    };
-}
+    sf::Clock clock;
+    float deltaTime;
+};
 
 
 

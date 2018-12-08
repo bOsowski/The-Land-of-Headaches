@@ -5,13 +5,11 @@
 
 #include "BaseComponent.hpp"
 
-namespace headache{
 
-    std::string BaseComponent::name() {
-        return _name;
-    }
-
-    BaseComponent::BaseComponent(std::string name, GameObject &_delegate) :
-            _name(name),
-            delegate(_delegate) {}
+std::string BaseComponent::name() {
+    return _name;
 }
+
+BaseComponent::BaseComponent(std::string name, GameObject &_delegate) :
+        _name(name),
+        delegate(_delegate) {}

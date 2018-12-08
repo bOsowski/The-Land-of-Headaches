@@ -23,7 +23,7 @@
 int main(int, char const**) {
 
     // Program entry point.
-    headache::World world;
+    World world;
     while(world.isOpened()){
         world.update();
         world.render();

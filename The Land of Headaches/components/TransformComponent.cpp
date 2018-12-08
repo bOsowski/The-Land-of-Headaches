@@ -5,13 +5,11 @@
 
 #include "TransformComponent.hpp"
 
-namespace headache{
-    TransformComponent::TransformComponent(GameObject &_delegate)
-            : BaseComponent("TransformComponent", _delegate) {
-    }
+TransformComponent::TransformComponent(GameObject &_delegate)
+        : BaseComponent("TransformComponent", _delegate) {
+}
 
-    void TransformComponent::update(float deltaTime) {
-
-    }
+void TransformComponent::update(float deltaTime) {
 
 }
+

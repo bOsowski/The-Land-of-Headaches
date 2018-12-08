@@ -10,17 +10,15 @@
 #include <Box2D.h>
 #include "BaseComponent.hpp"
 
-namespace headache{
-    class TransformComponent : BaseComponent{
-    public:
-        TransformComponent(GameObject &_delegate);
+class TransformComponent : BaseComponent{
+public:
+    TransformComponent(GameObject &_delegate);
 
-        void update(float deltaTime);
+    void update(float deltaTime);
 
-    private:
-        b2Body* body;
-    };
-}
+private:
+    b2Body* body;
+};
 
 
 #endif //THE_LAND_OF_HEADACHES_TRANSFORMCOMPONENT_HPP

@@ -10,26 +10,24 @@
 #include <string>
 #include "GameObject.hpp"
 
-namespace headache{
-    class GameObject;
+class GameObject;
 
-    class BaseComponent {
+class BaseComponent {
 
-    public:
-        BaseComponent(std::string name, GameObject& _delegate);
+public:
+    BaseComponent(std::string name, GameObject& _delegate);
 
-        virtual void update(float deltaTime) = 0;
+    virtual void update(float deltaTime) = 0;
 
-        std::string name();
+    std::string name();
 
-    protected:
-        GameObject& delegate;
+protected:
+    GameObject& delegate;
 
-    private:
-        std::string _name;
+private:
+    std::string _name;
 
-    };
-}
+};
 
 
 #endif //THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP

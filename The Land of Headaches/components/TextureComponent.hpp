@@ -11,19 +11,17 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include "BaseComponent.hpp"
 
-namespace headache{
-    class GraphicsComponent : public BaseComponent, public sf::Drawable{
-    public:
-        GraphicsComponent(sf::Sprite* _sprite, GameObject &_delegate);
+class TextureComponent : public BaseComponent, public sf::Drawable{
+public:
+    TextureComponent(sf::Sprite* _sprite, GameObject &_delegate);
 
-        void update(float deltaTime);
+    void update(float deltaTime);
 
-    private:
-        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+private:
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-        sf::Sprite* sprite;
-    };
-}
+    sf::Sprite* sprite;
+};
 
 
 #endif //THE_LAND_OF_HEADACHES_GRAPHICSCOMPONENT_HPP
