@@ -18,3 +18,7 @@ const b2Vec2& TransformComponent::position() {
     return body->GetPosition();
 }
 
+void TransformComponent::move(Direction direction) {
+    body->SetLinearVelocity(direction.direction());
+}
+

@@ -6,9 +6,8 @@
 #ifndef THE_LAND_OF_HEADACHES_TRANSFORMCOMPONENT_HPP
 #define THE_LAND_OF_HEADACHES_TRANSFORMCOMPONENT_HPP
 
-
-#include <Box2D.h>
 #include "BaseComponent.hpp"
+#include "Direction.hpp"
 
 class GameObject;
 
@@ -17,6 +16,8 @@ public:
     TransformComponent(b2Body* _body, GameObject &_delegate);
 
     void update(float deltaTime);
+
+    void move(Direction direction);
 
     const b2Vec2& position();
 
