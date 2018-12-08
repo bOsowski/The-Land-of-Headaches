@@ -6,9 +6,15 @@
 #ifndef THE_LAND_OF_HEADACHES_ASSETMANAGER_HPP
 #define THE_LAND_OF_HEADACHES_ASSETMANAGER_HPP
 
+#include <SFML/Graphics.hpp>
+#include "ResourcePath.hpp"
 #include <map>
 #include <string>
-#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <zconf.h>
+#include "utils.hpp"
+#include <dirent.h>
+#include <iostream>
 
 
 class AssetManager {
@@ -21,7 +27,7 @@ public:
 private:
     AssetManager();
     AssetManager(const AssetManager& other) = delete;
-    std::map<std::string, sf::Sprite> textures;
+    std::map<std::string, sf::Sprite> sprites;
 };
 
 

@@ -9,6 +9,8 @@
 #include "TextureComponent.hpp"
 
 class AnimationComponent : public TextureComponent{
+public:
+    AnimationComponent(sf::Sprite *_sprite, GameObject &_delegate);
 
 
 };

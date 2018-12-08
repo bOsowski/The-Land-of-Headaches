@@ -12,9 +12,11 @@
 
 class TransformComponent : BaseComponent{
 public:
-    TransformComponent(GameObject &_delegate);
+    TransformComponent(b2Body* _body, GameObject &_delegate);
 
     void update(float deltaTime);
+
+    const b2Vec2& getPosition();
 
 private:
     b2Body* body;

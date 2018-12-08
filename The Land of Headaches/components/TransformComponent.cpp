@@ -5,11 +5,16 @@
 
 #include "TransformComponent.hpp"
 
-TransformComponent::TransformComponent(GameObject &_delegate)
-        : BaseComponent("TransformComponent", _delegate) {
+TransformComponent::TransformComponent(b2Body* _body, GameObject &_delegate)
+        : BaseComponent("TransformComponent", _delegate),
+        body(_body){
 }
 
 void TransformComponent::update(float deltaTime) {
 
+}
+
+const b2Vec2& TransformComponent::getPosition() {
+    return body->GetPosition();
 }
 

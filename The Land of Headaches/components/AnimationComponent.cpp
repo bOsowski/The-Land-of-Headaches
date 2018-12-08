@@ -4,3 +4,7 @@
 //
 
 #include "AnimationComponent.hpp"
+
+AnimationComponent::AnimationComponent(sf::Sprite *_sprite, GameObject &_delegate)
+        : TextureComponent(_sprite, _delegate) {
+}

@@ -18,11 +18,12 @@
 #include <SFML/Graphics.hpp>
 #include "ResourcePath.hpp"
 #include "World.hpp"
+#include "AssetManager.hpp"
 
 
 int main(int, char const**) {
-
     // Program entry point.
+    AssetManager::instance();   //instantiate asset manager here.
     while(World::instance().isOpened()){
         World::instance().update();
         World::instance().render();
