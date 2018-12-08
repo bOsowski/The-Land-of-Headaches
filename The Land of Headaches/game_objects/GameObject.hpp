@@ -6,11 +6,22 @@
 #ifndef THE_LAND_OF_HEADACHES_GAMEOBJECT_HPP
 #define THE_LAND_OF_HEADACHES_GAMEOBJECT_HPP
 
+#include <vector>
+#include <map>
+#include <string>
+#include "BaseComponent.hpp"
 
+namespace headache{
+    class BaseComponent;
 
-class GameObject {
+    class GameObject {
 
-};
+    public:
+        GameObject();
+        std::map<std::string, BaseComponent*> components;
+    };
+
+}
 
 
 

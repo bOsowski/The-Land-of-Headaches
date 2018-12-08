@@ -4,3 +4,10 @@
 //
 
 #include "GameObject.hpp"
+
+namespace headache{
+
+    GameObject::GameObject() {
+
+    }
+}

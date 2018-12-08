@@ -6,11 +6,32 @@
 #ifndef THE_LAND_OF_HEADACHES_WORLD_HPP
 #define THE_LAND_OF_HEADACHES_WORLD_HPP
 
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/System/Clock.hpp>
+#include "GraphicsComponent.hpp"
+#include "GameObject.hpp"
 
+namespace headache{
+    class World {
 
-class World {
+    public:
 
-};
+        World();
+
+        std::vector<GameObject> gameObjects;
+
+        void update();
+
+        void render();
+
+    private:
+
+        sf::RenderWindow window;
+
+        sf::Clock clock;
+        float deltaTime;
+    };
+}
 
 
 

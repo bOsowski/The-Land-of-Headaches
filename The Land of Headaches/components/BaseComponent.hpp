@@ -7,11 +7,29 @@
 #define THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP
 
 
+#include <string>
+#include "GameObject.hpp"
 
-class BaseComponent {
+namespace headache{
+    class GameObject;
 
-};
+    class BaseComponent {
 
+    public:
+        BaseComponent(std::string name, GameObject& _delegate);
+
+        virtual void update(float deltaTime) = 0;
+
+        std::string name();
+
+    protected:
+        GameObject& delegate;
+
+    private:
+        std::string _name;
+
+    };
+}
 
 
 #endif //THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP

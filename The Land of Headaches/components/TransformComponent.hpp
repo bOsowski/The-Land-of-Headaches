@@ -7,11 +7,18 @@
 #define THE_LAND_OF_HEADACHES_TRANSFORMCOMPONENT_HPP
 
 
+#include "BaseComponent.hpp"
 
-class TransformComponent {
+namespace headache{
+    class TransformComponent : BaseComponent{
+    public:
+        TransformComponent(GameObject &_delegate);
 
-};
+        void update(float deltaTime);
 
+    };
+
+}
 
 
 #endif //THE_LAND_OF_HEADACHES_TRANSFORMCOMPONENT_HPP
