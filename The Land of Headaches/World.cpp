@@ -7,10 +7,6 @@
 
 World::World() : window(sf::VideoMode(800, 600), "The Land of Headaches") {
     window.setActive(true);
-
-    GameObject temp = GameObject();
-    GameObject tempp;
-    gameObjects.push_back(temp);
 }
 
 void World::update() {
@@ -20,7 +16,7 @@ void World::update() {
     }
 
     for(auto object: gameObjects){
-        for(auto component: object.components){
+        for(auto component: object.getComponents()){
             component.second->update(0);
         }
     }
@@ -28,7 +24,7 @@ void World::update() {
 
 void World::render() {
     for(auto object: gameObjects){
-        for(auto component: object.components){
+        for(auto component: object.getComponents()){
             if(component.second->name() == "TextureComponent"){
                 window.draw(*((TextureComponent*)component.second));
             }

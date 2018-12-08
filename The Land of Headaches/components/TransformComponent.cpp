@@ -14,7 +14,7 @@ void TransformComponent::update(float deltaTime) {
 
 }
 
-const b2Vec2& TransformComponent::getPosition() {
+const b2Vec2& TransformComponent::position() {
     return body->GetPosition();
 }
 

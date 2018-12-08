@@ -10,13 +10,15 @@
 #include <Box2D.h>
 #include "BaseComponent.hpp"
 
-class TransformComponent : BaseComponent{
+class GameObject;
+
+class TransformComponent : public BaseComponent{
 public:
     TransformComponent(b2Body* _body, GameObject &_delegate);
 
     void update(float deltaTime);
 
-    const b2Vec2& getPosition();
+    const b2Vec2& position();
 
 private:
     b2Body* body;

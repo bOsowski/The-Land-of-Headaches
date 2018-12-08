@@ -6,9 +6,7 @@
 #ifndef THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP
 #define THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP
 
-
 #include <string>
-#include "GameObject.hpp"
 
 class GameObject;
 

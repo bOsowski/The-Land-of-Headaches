@@ -8,15 +8,21 @@
 
 #include <vector>
 #include <map>
-#include <string>
-#include "BaseComponent.hpp"
+#include "TransformComponent.hpp"
 
+class TransformComponent;
 class BaseComponent;
 
 class GameObject {
 
 public:
-    GameObject();
+    GameObject(TransformComponent* transformComponent);
+    void addComponent(BaseComponent* component);
+    const std::map<std::string, BaseComponent*> getComponents();
+    const TransformComponent* transform();
+
+private:
+    TransformComponent* _transform;
     std::map<std::string, BaseComponent*> components;
 };
 
