@@ -7,10 +7,18 @@
 
 namespace headache{
     World::World() : window(sf::VideoMode(800, 600), "The Land of Headaches") {
+        window.setActive(true);
 
+        GameObject temp = GameObject();
+        gameObjects.push_back(temp);
     }
 
     void World::update() {
+        sf::Event event;
+        while(window.pollEvent(event)){
+            if (sf::Event::Closed == event.type) window.close();
+        }
+
         for(auto object: gameObjects){
             for(auto component: object.components){
                 component.second->update(0);
@@ -26,6 +34,10 @@ namespace headache{
                 }
             }
         }
+    }
+
+    bool World::isOpened() {
+        return window.isOpen();
     }
 
 }

@@ -7,6 +7,7 @@
 #define THE_LAND_OF_HEADACHES_TRANSFORMCOMPONENT_HPP
 
 
+#include <Box2D.h>
 #include "BaseComponent.hpp"
 
 namespace headache{
@@ -16,8 +17,9 @@ namespace headache{
 
         void update(float deltaTime);
 
+    private:
+        b2Body* body;
     };
-
 }
 
 

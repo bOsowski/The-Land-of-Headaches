@@ -24,6 +24,8 @@ namespace headache{
 
         void render();
 
+        bool isOpened();
+
     private:
 
         sf::RenderWindow window;

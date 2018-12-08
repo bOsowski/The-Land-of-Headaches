@@ -17,10 +17,18 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "ResourcePath.hpp"
+#include "World.hpp"
+
 
 int main(int, char const**) {
 
-
+    // Program entry point.
+    headache::World world;
+    while(world.isOpened()){
+        world.update();
+        world.render();
+//        world.RestartClock();
+    }
 
     return EXIT_SUCCESS;
 }
