@@ -15,8 +15,6 @@ class World {
 
 public:
 
-    World();
-
     std::vector<GameObject> gameObjects;
 
     void update();
@@ -25,7 +23,14 @@ public:
 
     bool isOpened();
 
+    static World& instance(){
+        static World* instance = new World();
+        return *instance;
+    }
+
 private:
+    World();
+    World(const World& other) = delete;
 
     sf::RenderWindow window;
 

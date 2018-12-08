@@ -23,10 +23,9 @@
 int main(int, char const**) {
 
     // Program entry point.
-    World world;
-    while(world.isOpened()){
-        world.update();
-        world.render();
+    while(World::instance().isOpened()){
+        World::instance().update();
+        World::instance().render();
 //        world.RestartClock();
     }
 
