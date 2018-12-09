@@ -30,7 +30,7 @@ int main(int, char const**) {
     b2BodyDef* bodyDef = new b2BodyDef();
     bodyDef->position = b2Vec2(250,250);
     bodyDef->type = b2BodyType::b2_dynamicBody;
-    TransformComponent* transformComponent = new TransformComponent(bodyDef, 100);
+    TransformComponent* transformComponent = new TransformComponent(bodyDef, 10000);
     GameObject gameObject = GameObject(transformComponent);
     AnimationComponent* animationComponent = new AnimationComponent("mage_walk_down.png", 0.2, 8);
     gameObject.addComponent(animationComponent);

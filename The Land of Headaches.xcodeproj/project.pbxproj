@@ -21,6 +21,7 @@
 		7D9396EE634E8EC8C42C004C /* BaseComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939A70BADD947D9804203E /* BaseComponent.cpp */; };
 		7D939740010CF2EDEDFD1CB8 /* Direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939439B212DF1A55EE22E2 /* Direction.cpp */; };
 		7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */; };
+		7D9399D088EF144BD97FBD7F /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93905A7011A726D5EA5D5B /* State.cpp */; };
 		7D939A082E8EC775182AAC49 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93903E021AD76AD22385AC /* TransformComponent.cpp */; };
 		7D939D6E06C4DCF200C7805E /* TextureComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93991D2A98F163212ED26B /* TextureComponent.cpp */; };
 		7D939E3C4380614E3CABAEED /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93998E8C386B69F4013B2B /* AssetManager.cpp */; };
@@ -40,6 +41,7 @@
 		0CE5CCEC21BB4BC6007072A5 /* libBox2D.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBox2D.a; sourceTree = "<group>"; };
 		0CE5CD3221BC5034007072A5 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
 		7D93903E021AD76AD22385AC /* TransformComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformComponent.cpp; sourceTree = "<group>"; };
+		7D93905A7011A726D5EA5D5B /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		7D9391955146D890B65F5EE3 /* utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utils.hpp; sourceTree = "<group>"; };
 		7D9391B7ACE6FB9D2C1F1F71 /* InputComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputComponent.hpp; sourceTree = "<group>"; };
 		7D9391BEA19F5E9275389978 /* TransformComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransformComponent.hpp; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		7D939B4E89658A8761343B1A /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		7D939B5F2223A7D794A4686E /* InputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputComponent.cpp; sourceTree = "<group>"; };
 		7D939CBE270F791D4CCBF476 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		7D939CFACD48D61740ED2AF1 /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
 		7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatorComponent.hpp; sourceTree = "<group>"; };
 		7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatorComponent.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +175,8 @@
 			children = (
 				7D939439B212DF1A55EE22E2 /* Direction.cpp */,
 				7D939891763AEAE541FA0B13 /* Direction.hpp */,
+				7D93905A7011A726D5EA5D5B /* State.cpp */,
+				7D939CFACD48D61740ED2AF1 /* State.hpp */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				7D939740010CF2EDEDFD1CB8 /* Direction.cpp in Sources */,
 				7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */,
 				7D939F6BBDEFFC78F14D349C /* InputComponent.cpp in Sources */,
+				7D9399D088EF144BD97FBD7F /* State.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

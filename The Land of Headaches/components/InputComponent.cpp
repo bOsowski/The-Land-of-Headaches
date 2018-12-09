@@ -12,19 +12,19 @@ BaseComponent("InputComponent"){
 
 void InputComponent::update(float deltaTime) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-        delegate->transform()->move(LEFT);
+        delegate->transform()->move(LEFT, deltaTime);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-        delegate->transform()->move(RIGHT);
+        delegate->transform()->move(RIGHT, deltaTime);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-        delegate->transform()->move(UP);
+        delegate->transform()->move(UP, deltaTime);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-        delegate->transform()->move(DOWN);
+        delegate->transform()->move(DOWN, deltaTime);
     }
     else{
-        delegate->transform()->move(NONE);
+        delegate->transform()->move(NONE, deltaTime);
     }
 }
 

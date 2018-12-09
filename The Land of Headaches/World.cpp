@@ -15,8 +15,16 @@ physicsWorld(b2World(b2Vec2()))
 }
 
 void World::update() {
+    std::cout<<"Window size = "<<window.getSize().x << ", "<<window.getSize().y<<std::endl;
     sf::Event event;
     while(window.pollEvent(event)){
+        // catch the resize events
+        if (event.type == sf::Event::Resized)
+        {
+            // update the view to the new size of the window
+            sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
+            window.setView(sf::View(visibleArea));
+        }
         if (sf::Event::Closed == event.type) window.close();
     }
 
@@ -25,7 +33,7 @@ void World::update() {
             component.second->update(deltaTime);
         }
     }
-    physicsWorld.Step(deltaTime, 3, 1);
+    physicsWorld.Step(1.0f/60.0f, 6, 2);
 }
 
 void World::render() {

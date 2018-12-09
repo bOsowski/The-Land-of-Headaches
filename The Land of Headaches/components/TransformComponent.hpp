@@ -17,7 +17,7 @@ public:
 
     void update(float deltaTime);
 
-    void move(Direction direction);
+    void move(Direction direction, float deltaTime);
 
     const b2Vec2& position();
 

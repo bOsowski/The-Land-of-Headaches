@@ -7,6 +7,7 @@
 #define THE_LAND_OF_HEADACHES_DIRECTION_HPP
 
 #include <Box2D.h>
+#include <string>
 
 class Direction{
     int index;
@@ -16,7 +17,8 @@ public:
     constexpr explicit Direction(int index) : index(index) {}
     constexpr operator int() const { return index; }
 
-    const b2Vec2& direction() const;
+    const b2Vec2& value() const;
+    const std::string& name() const;
 };
 
 constexpr Direction UP(0);

@@ -20,11 +20,10 @@ const b2Vec2& TransformComponent::position() {
     return body->GetPosition();
 }
 
-void TransformComponent::move(Direction direction) {
-    body->SetLinearVelocity(b2Vec2(direction.direction().x*movementSpeed, direction.direction().y*movementSpeed));
+void TransformComponent::move(Direction direction, float deltaTime) {
+    body->SetLinearVelocity(b2Vec2(direction.value().x*movementSpeed*deltaTime, direction.value().y*movementSpeed*deltaTime));
 }
 
 const b2BodyDef *TransformComponent::bodyDef() const{
     return _bodyDef;
 }
-
