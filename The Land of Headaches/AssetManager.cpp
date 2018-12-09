@@ -10,10 +10,10 @@ AssetManager::AssetManager() {
     DIR *dir;
     struct dirent *ent;
 
-    const char* textures = ((resourcePath()+"textures/").c_str());
-    const std::string texturesPath = std::string(textures);
+    const char* textureDir = ((resourcePath()+"textures/").c_str());
+    const std::string texturesPath = std::string(textureDir);
 
-    if ((dir = opendir (textures)) != NULL) {
+    if ((dir = opendir (textureDir)) != NULL) {
         std::cout<< "Found textures folder."<<std::endl;
         while ((ent = readdir (dir)) != NULL) {
             std::string fileName = std::string(ent->d_name);
@@ -22,10 +22,9 @@ AssetManager::AssetManager() {
 
             std::string full_path = texturesPath + fileName;
             std::cout << "Trying to load from " + full_path << std::endl;
-            sf::Texture& texture = *(new sf::Texture());
+            sf::Texture texture;
             if ( texture.loadFromFile(full_path)) {
-                sf::Sprite sprite = sf::Sprite(texture);
-                sprites.insert(std::pair<std::string, sf::Sprite>(fileName, sprite));
+                textures.insert(std::pair<std::string, sf::Texture>(fileName, texture));
                 std::cout << "Loaded '" + fileName << "'" << std::endl<<std::endl;
             }
             else{

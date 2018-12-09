@@ -24,7 +24,7 @@ public:
         return *instance;
     }
 
-    std::map<std::string, sf::Sprite> sprites;
+    std::map<std::string, sf::Texture> textures;
 
 private:
     AssetManager();

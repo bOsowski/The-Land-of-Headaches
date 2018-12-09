@@ -10,7 +10,7 @@
 
 class AnimationComponent : public TextureComponent{
 public:
-    AnimationComponent(sf::Sprite *_sprite, float _frameChangeTime, int frameCount);
+    AnimationComponent(sf::Texture *texture, float _frameChangeTime, int frameCount);
 
     void update(float deltaTime);
 

@@ -5,12 +5,12 @@
 
 #include "AnimationComponent.hpp"
 
-AnimationComponent::AnimationComponent(sf::Sprite *_sprite, float _frameChangeTime, int _frameCount)
+AnimationComponent::AnimationComponent(sf::Texture *texture, float _frameChangeTime, int _frameCount)
 :
-TextureComponent(_sprite),
+TextureComponent(texture),
 frameChangeTime(_frameChangeTime),
-frameWidth(_sprite->getTexture()->getSize().x / _frameCount),
-frameHeight(_sprite->getTexture()->getSize().y),
+frameWidth(texture->getSize().x / _frameCount),
+frameHeight(texture->getSize().y),
 frameCount(_frameCount)
 
 {

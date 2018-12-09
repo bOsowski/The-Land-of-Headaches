@@ -29,7 +29,7 @@ void World::update() {
 void World::render() {
     for(auto object: gameObjects){
         for(auto component: object.getComponents()){
-            if(component.second->name() == "TextureComponent"){
+            if(dynamic_cast<const TextureComponent*>(component.second) != nullptr){
                 window.draw(*((TextureComponent*)component.second));
             }
         }

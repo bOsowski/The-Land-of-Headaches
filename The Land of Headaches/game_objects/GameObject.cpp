@@ -25,7 +25,7 @@ TransformComponent *GameObject::transform() {
 
 void GameObject::instantiate() {
     World::instance().gameObjects.push_back(*this);
-    //transform()->body = World::instance().physicsWorld.CreateBody(transform()->bodyDef());
+    transform()->body = World::instance().physicsWorld.CreateBody(transform()->bodyDef());
 }
 
 

@@ -29,8 +29,8 @@ int main(int, char const**) {
     b2BodyDef* bodyDef = new b2BodyDef();
     TransformComponent* transformComponent = new TransformComponent(bodyDef);
     GameObject gameObject = GameObject(transformComponent);
-    sf::Sprite* sprite = &(AssetManager::instance().sprites.at("mage_walk_down.png"));
-    AnimationComponent* animationComponent = new AnimationComponent(sprite, 1, 8);
+    sf::Texture* texture = &(AssetManager::instance().textures.at("mage_walk_down.png"));
+    AnimationComponent* animationComponent = new AnimationComponent(texture, 1, 8);
     gameObject.addComponent(animationComponent);
     gameObject.instantiate();
 

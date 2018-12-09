@@ -14,7 +14,7 @@
 
 class TextureComponent : public BaseComponent, public sf::Drawable{
 public:
-    TextureComponent(sf::Sprite* _sprite);
+    TextureComponent(sf::Texture* texture);
 
     void update(float deltaTime);
 

@@ -5,9 +5,9 @@
 
 #include "TextureComponent.hpp"
 
-TextureComponent::TextureComponent(sf::Sprite* _sprite) :
-        BaseComponent("GraphicsComponent"),
-        sprite(_sprite)
+TextureComponent::TextureComponent(sf::Texture* texture) :
+        BaseComponent("TextureComponent"),
+        sprite(new sf::Sprite(*texture))
 {}
 
 void TextureComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const{
