@@ -7,9 +7,10 @@
 
 const b2Vec2& Direction::direction() const{
     switch(index) {
-        case UP: return b2Vec2(0,1);
-        case DOWN: return b2Vec2(0,-1);
-        case LEFT: return b2Vec2(-1,0);
-        case RIGHT: return b2Vec2(1,0);
+        case UP: return *new b2Vec2(0,-1);
+        case DOWN: return *new b2Vec2(0,1);
+        case LEFT: return *new b2Vec2(-1,0);
+        case RIGHT: return *new b2Vec2(1,0);
+        case NONE: return *new b2Vec2(0,0);
     }
 }

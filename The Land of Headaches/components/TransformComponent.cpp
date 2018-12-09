@@ -3,11 +3,13 @@
 // Copyright (c) 2018 Bartosz Osowski. All rights reserved.
 //
 
+#include <iostream>
 #include "TransformComponent.hpp"
 
-TransformComponent::TransformComponent(b2BodyDef* __bodyDef)
+TransformComponent::TransformComponent(b2BodyDef* __bodyDef, float _movementSpeed)
         : BaseComponent("TransformComponent"),
-        _bodyDef(__bodyDef){
+        _bodyDef(__bodyDef),
+        movementSpeed(_movementSpeed){
 }
 
 void TransformComponent::update(float deltaTime) {
@@ -19,7 +21,7 @@ const b2Vec2& TransformComponent::position() {
 }
 
 void TransformComponent::move(Direction direction) {
-    body->SetLinearVelocity(direction.direction());
+    body->SetLinearVelocity(b2Vec2(direction.direction().x*movementSpeed, direction.direction().y*movementSpeed));
 }
 
 const b2BodyDef *TransformComponent::bodyDef() const{

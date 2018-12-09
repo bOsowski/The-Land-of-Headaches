@@ -20,6 +20,7 @@
 #include "World.hpp"
 #include "AssetManager.hpp"
 #include "AnimationComponent.hpp"
+#include "InputComponent.hpp"
 
 
 int main(int, char const**) {
@@ -27,13 +28,16 @@ int main(int, char const**) {
     AssetManager::instance();   //instantiate asset manager here.
 
     b2BodyDef* bodyDef = new b2BodyDef();
+    bodyDef->position = b2Vec2(250,250);
     bodyDef->type = b2BodyType::b2_dynamicBody;
-    TransformComponent* transformComponent = new TransformComponent(bodyDef);
+    TransformComponent* transformComponent = new TransformComponent(bodyDef, 100);
     GameObject gameObject = GameObject(transformComponent);
     AnimationComponent* animationComponent = new AnimationComponent("mage_walk_down.png", 0.2, 8);
     gameObject.addComponent(animationComponent);
+    InputComponent* inputComponent = new InputComponent();
+    gameObject.addComponent(inputComponent);
     gameObject.instantiate();
-    gameObject.transform()->body->SetLinearVelocity(b2Vec2(100,100));
+//    gameObject.transform()->body->SetLinearVelocity(b2Vec2(100,100));
 
     while(World::instance().isOpened()){
         World::instance().update();

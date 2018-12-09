@@ -24,6 +24,7 @@
 		7D939A082E8EC775182AAC49 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93903E021AD76AD22385AC /* TransformComponent.cpp */; };
 		7D939D6E06C4DCF200C7805E /* TextureComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93991D2A98F163212ED26B /* TextureComponent.cpp */; };
 		7D939E3C4380614E3CABAEED /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93998E8C386B69F4013B2B /* AssetManager.cpp */; };
+		7D939F6BBDEFFC78F14D349C /* InputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939B5F2223A7D794A4686E /* InputComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		0CE5CD3221BC5034007072A5 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
 		7D93903E021AD76AD22385AC /* TransformComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformComponent.cpp; sourceTree = "<group>"; };
 		7D9391955146D890B65F5EE3 /* utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utils.hpp; sourceTree = "<group>"; };
+		7D9391B7ACE6FB9D2C1F1F71 /* InputComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputComponent.hpp; sourceTree = "<group>"; };
 		7D9391BEA19F5E9275389978 /* TransformComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransformComponent.hpp; sourceTree = "<group>"; };
 		7D9392B361521376BE94A079 /* TextureComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureComponent.hpp; sourceTree = "<group>"; };
 		7D9393637D1281F1FB5BEC05 /* GameObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		7D939A70BADD947D9804203E /* BaseComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseComponent.cpp; sourceTree = "<group>"; };
 		7D939AF1F225F93DEB0D1152 /* AssetManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AssetManager.hpp; sourceTree = "<group>"; };
 		7D939B4E89658A8761343B1A /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		7D939B5F2223A7D794A4686E /* InputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputComponent.cpp; sourceTree = "<group>"; };
 		7D939CBE270F791D4CCBF476 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatorComponent.hpp; sourceTree = "<group>"; };
 		7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatorComponent.cpp; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				7D93986D3BB071B9AAEFA6CA /* AnimationComponent.hpp */,
 				7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */,
 				7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */,
+				7D939B5F2223A7D794A4686E /* InputComponent.cpp */,
+				7D9391B7ACE6FB9D2C1F1F71 /* InputComponent.hpp */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				7D939384F0E7375A53E2EE6F /* AnimationComponent.cpp in Sources */,
 				7D939740010CF2EDEDFD1CB8 /* Direction.cpp in Sources */,
 				7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */,
+				7D939F6BBDEFFC78F14D349C /* InputComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

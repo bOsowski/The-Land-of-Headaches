@@ -11,7 +11,7 @@
 class Direction{
     int index;
 public:
-    static constexpr int length() {return 4;}
+    static constexpr int length() {return 5;}
     Direction() : index(0) {}
     constexpr explicit Direction(int index) : index(index) {}
     constexpr operator int() const { return index; }
@@ -23,5 +23,6 @@ constexpr Direction UP(0);
 constexpr Direction DOWN(1);
 constexpr Direction LEFT(2);
 constexpr Direction RIGHT(3);
+constexpr Direction NONE(4);
 
 #endif //THE_LAND_OF_HEADACHES_DIRECTION_HPP

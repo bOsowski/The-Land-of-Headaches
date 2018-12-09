@@ -13,7 +13,7 @@ class GameObject;
 
 class TransformComponent : public BaseComponent{
 public:
-    TransformComponent(b2BodyDef* __bodyDef);
+    TransformComponent(b2BodyDef* __bodyDef, float _movementSpeed = 0);
 
     void update(float deltaTime);
 
@@ -28,6 +28,7 @@ public:
 
 private:
     b2BodyDef* _bodyDef;
+    float movementSpeed;
 };
 
 
