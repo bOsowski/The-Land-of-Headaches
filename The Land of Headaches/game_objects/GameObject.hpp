@@ -9,6 +9,7 @@
 #include <vector>
 #include <map>
 #include "TransformComponent.hpp"
+#include "World.hpp"
 
 class TransformComponent;
 class BaseComponent;
@@ -19,7 +20,8 @@ public:
     GameObject(TransformComponent* transformComponent);
     void addComponent(BaseComponent* component);
     const std::map<std::string, BaseComponent*> getComponents();
-    const TransformComponent* transform();
+    TransformComponent* transform();
+    void instantiate();
 
 private:
     TransformComponent* _transform;

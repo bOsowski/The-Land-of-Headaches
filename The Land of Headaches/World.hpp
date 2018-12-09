@@ -28,6 +28,8 @@ public:
         return *instance;
     }
 
+    b2World physicsWorld;
+
 private:
     World();
     World(const World& other) = delete;

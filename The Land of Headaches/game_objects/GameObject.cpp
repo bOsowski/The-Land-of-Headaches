@@ -5,7 +5,6 @@
 
 #include "GameObject.hpp"
 
-
 GameObject::GameObject(TransformComponent* transformComponent) {
     _transform = transformComponent;
     addComponent(transformComponent);
@@ -19,8 +18,13 @@ const std::map<std::string, BaseComponent *> GameObject::getComponents() {
     return components;
 }
 
-const TransformComponent *GameObject::transform() {
+TransformComponent *GameObject::transform() {
     return _transform;
+}
+
+void GameObject::instantiate() {
+    World::instance().gameObjects.push_back(*this);
+    transform()->body = World::instance().physicsWorld.CreateBody(transform()->bodyDef());
 }
 
 

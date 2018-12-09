@@ -5,9 +5,9 @@
 
 #include "TransformComponent.hpp"
 
-TransformComponent::TransformComponent(b2Body* _body, GameObject &_delegate)
+TransformComponent::TransformComponent(b2BodyDef* __bodyDef, GameObject &_delegate)
         : BaseComponent("TransformComponent", _delegate),
-        body(_body){
+        _bodyDef(__bodyDef){
 }
 
 void TransformComponent::update(float deltaTime) {
@@ -20,5 +20,9 @@ const b2Vec2& TransformComponent::position() {
 
 void TransformComponent::move(Direction direction) {
     body->SetLinearVelocity(direction.direction());
+}
+
+const b2BodyDef *TransformComponent::bodyDef() const{
+    return _bodyDef;
 }
 
