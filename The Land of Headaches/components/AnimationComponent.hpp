@@ -10,7 +10,7 @@
 
 class AnimationComponent : public TextureComponent{
 public:
-    AnimationComponent(sf::Texture *texture, float _frameChangeTime, int frameCount);
+    AnimationComponent(std::string textureName, float _frameChangeTime, int frameCount);
 
     void update(float deltaTime);
 

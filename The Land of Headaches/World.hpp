@@ -10,7 +10,7 @@
 #include <SFML/System/Clock.hpp>
 #include "TextureComponent.hpp"
 #include "GameObject.hpp"
-#include <iostream>
+#include <iostream>     //todo: remove this later.
 
 class World {
 

@@ -10,11 +10,11 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include "GameObject.hpp"
-
+#include "AssetManager.hpp"
 
 class TextureComponent : public BaseComponent, public sf::Drawable{
 public:
-    TextureComponent(sf::Texture* texture);
+    TextureComponent(std::string textureName);
 
     void update(float deltaTime);
 

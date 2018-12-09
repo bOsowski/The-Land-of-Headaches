@@ -20,6 +20,7 @@
 		7D93951D09675BF9AEA1428F /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939CBE270F791D4CCBF476 /* GameObject.cpp */; };
 		7D9396EE634E8EC8C42C004C /* BaseComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939A70BADD947D9804203E /* BaseComponent.cpp */; };
 		7D939740010CF2EDEDFD1CB8 /* Direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939439B212DF1A55EE22E2 /* Direction.cpp */; };
+		7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */; };
 		7D939A082E8EC775182AAC49 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93903E021AD76AD22385AC /* TransformComponent.cpp */; };
 		7D939D6E06C4DCF200C7805E /* TextureComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93991D2A98F163212ED26B /* TextureComponent.cpp */; };
 		7D939E3C4380614E3CABAEED /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93998E8C386B69F4013B2B /* AssetManager.cpp */; };
@@ -54,6 +55,8 @@
 		7D939AF1F225F93DEB0D1152 /* AssetManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AssetManager.hpp; sourceTree = "<group>"; };
 		7D939B4E89658A8761343B1A /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		7D939CBE270F791D4CCBF476 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatorComponent.hpp; sourceTree = "<group>"; };
+		7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatorComponent.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				7D9392B361521376BE94A079 /* TextureComponent.hpp */,
 				7D93995D4D00164917804B34 /* AnimationComponent.cpp */,
 				7D93986D3BB071B9AAEFA6CA /* AnimationComponent.hpp */,
+				7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */,
+				7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				7D939E3C4380614E3CABAEED /* AssetManager.cpp in Sources */,
 				7D939384F0E7375A53E2EE6F /* AnimationComponent.cpp in Sources */,
 				7D939740010CF2EDEDFD1CB8 /* Direction.cpp in Sources */,
+				7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,14 +5,13 @@
 
 #include "AnimationComponent.hpp"
 
-AnimationComponent::AnimationComponent(sf::Texture *texture, float _frameChangeTime, int _frameCount)
+AnimationComponent::AnimationComponent(std::string textureName, float _frameChangeTime, int _frameCount)
 :
-TextureComponent(texture),
+TextureComponent(textureName),
 frameChangeTime(_frameChangeTime),
-frameWidth(texture->getSize().x / _frameCount),
-frameHeight(texture->getSize().y),
+frameWidth(sprite->getTexture()->getSize().x / _frameCount),
+frameHeight(sprite->getTexture()->getSize().y),
 frameCount(_frameCount)
-
 {
     sprite->setTextureRect(sf::IntRect(currentFrame, 0, frameWidth, frameHeight));
 }

@@ -15,7 +15,6 @@ physicsWorld(b2World(b2Vec2()))
 }
 
 void World::update() {
-    std::cout<<"Delta time = "<<deltaTime<<std::endl;
     sf::Event event;
     while(window.pollEvent(event)){
         if (sf::Event::Closed == event.type) window.close();

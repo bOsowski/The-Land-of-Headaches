@@ -4,10 +4,11 @@
 //
 
 #include "TextureComponent.hpp"
+#include "AssetManager.hpp"
 
-TextureComponent::TextureComponent(sf::Texture* texture) :
+TextureComponent::TextureComponent(std::string textureName) :
         BaseComponent("TextureComponent"),
-        sprite(new sf::Sprite(*texture))
+        sprite(new sf::Sprite(AssetManager::instance().textures.at(textureName)))
 {}
 
 void TextureComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const{
