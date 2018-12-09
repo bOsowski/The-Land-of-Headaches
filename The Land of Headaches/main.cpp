@@ -27,12 +27,14 @@ int main(int, char const**) {
     AssetManager::instance();   //instantiate asset manager here.
 
     b2BodyDef* bodyDef = new b2BodyDef();
+    bodyDef->type = b2BodyType::b2_dynamicBody;
     TransformComponent* transformComponent = new TransformComponent(bodyDef);
     GameObject gameObject = GameObject(transformComponent);
     sf::Texture* texture = &(AssetManager::instance().textures.at("mage_walk_down.png"));
-    AnimationComponent* animationComponent = new AnimationComponent(texture, 1, 8);
+    AnimationComponent* animationComponent = new AnimationComponent(texture, 0.2, 8);
     gameObject.addComponent(animationComponent);
     gameObject.instantiate();
+    gameObject.transform()->body->SetLinearVelocity(b2Vec2(100,100));
 
     while(World::instance().isOpened()){
         World::instance().update();

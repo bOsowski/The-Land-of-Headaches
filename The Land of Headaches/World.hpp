@@ -32,6 +32,8 @@ public:
     b2World physicsWorld;
 
 private:
+    float deltaTime;
+
     ~World();
 
     World();
@@ -39,7 +41,6 @@ private:
     sf::RenderWindow window;
 
     sf::Clock clock;
-    float deltaTime;
 };
 
 

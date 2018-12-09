@@ -20,14 +20,14 @@ frameCount(_frameCount)
 void AnimationComponent::update(float deltaTime) {
     timer += deltaTime;
     if(timer > frameChangeTime){
-        if(currentFrame < frameCount){
+        if(currentFrame < frameCount -1){
             currentFrame++;
         }
         else{
             currentFrame = 0;
         }
 
-        sprite->setTextureRect(sf::IntRect(currentFrame, 0 ,frameWidth, frameHeight));
+        sprite->setTextureRect(sf::IntRect(currentFrame*frameWidth, 0 ,frameWidth, frameHeight));
         timer = 0;
     }
     TextureComponent::update(deltaTime);
