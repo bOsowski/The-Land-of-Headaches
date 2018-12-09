@@ -10,6 +10,6 @@ std::string BaseComponent::name() {
     return _name;
 }
 
-BaseComponent::BaseComponent(std::string name, GameObject &_delegate) :
+BaseComponent::BaseComponent(std::string name) :
         _name(name),
         delegate(_delegate) {}

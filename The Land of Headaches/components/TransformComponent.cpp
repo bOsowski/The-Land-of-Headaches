@@ -5,8 +5,8 @@
 
 #include "TransformComponent.hpp"
 
-TransformComponent::TransformComponent(b2BodyDef* __bodyDef, GameObject &_delegate)
-        : BaseComponent("TransformComponent", _delegate),
+TransformComponent::TransformComponent(b2BodyDef* __bodyDef)
+        : BaseComponent("TransformComponent"),
         _bodyDef(__bodyDef){
 }
 

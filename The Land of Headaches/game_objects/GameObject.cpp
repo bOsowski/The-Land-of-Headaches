@@ -11,6 +11,7 @@ GameObject::GameObject(TransformComponent* transformComponent) {
 }
 
 void GameObject::addComponent(BaseComponent* component) {
+    component->delegate = *this;
     components.insert(std::pair<std::string, BaseComponent*>(component->name(), component));
 }
 

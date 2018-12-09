@@ -5,9 +5,9 @@
 
 #include "AnimationComponent.hpp"
 
-AnimationComponent::AnimationComponent(sf::Sprite *_sprite, float _frameChangeTime, int _frameCount, GameObject &_delegate)
+AnimationComponent::AnimationComponent(sf::Sprite *_sprite, float _frameChangeTime, int _frameCount)
 :
-TextureComponent(_sprite, _delegate),
+TextureComponent(_sprite),
 frameChangeTime(_frameChangeTime),
 frameWidth(_sprite->getTexture()->getSize().x / _frameCount),
 frameHeight(_sprite->getTexture()->getSize().y),

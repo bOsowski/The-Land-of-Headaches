@@ -13,7 +13,7 @@
 
 class TextureComponent : public BaseComponent, public sf::Drawable{
 public:
-    TextureComponent(sf::Sprite* _sprite, GameObject &_delegate);
+    TextureComponent(sf::Sprite* _sprite);
 
     void update(float deltaTime);
 

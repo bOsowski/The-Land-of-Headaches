@@ -5,8 +5,8 @@
 
 #include "TextureComponent.hpp"
 
-TextureComponent::TextureComponent(sf::Sprite* _sprite, GameObject &_delegate) :
-        BaseComponent("GraphicsComponent", _delegate),
+TextureComponent::TextureComponent(sf::Sprite* _sprite) :
+        BaseComponent("GraphicsComponent"),
         sprite(_sprite)
 {}
 

@@ -12,7 +12,6 @@ physicsWorld(b2World(b2Vec2()))
 {
     window.setActive(true);
 //    b2BodyDef* bodyDef = new b2BodyDef();
-//    b2Body* body = new b2Body(bodyDef, );
 //    TransformComponent transformComponent = TransformComponent();
 }
 

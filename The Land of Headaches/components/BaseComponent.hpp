@@ -13,13 +13,12 @@ class GameObject;
 class BaseComponent {
 
 public:
-    BaseComponent(std::string name, GameObject& _delegate);
+    BaseComponent(std::string name);
 
     virtual void update(float deltaTime) = 0;
 
     std::string name();
 
-protected:
     GameObject& delegate;
 
 private:
