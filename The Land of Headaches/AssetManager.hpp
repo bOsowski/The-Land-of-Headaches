@@ -24,10 +24,11 @@ public:
         return *instance;
     }
 
+    std::map<std::string, sf::Sprite> sprites;
+
 private:
     AssetManager();
     AssetManager(const AssetManager& other) = delete;
-    std::map<std::string, sf::Sprite> sprites;
 };
 
 

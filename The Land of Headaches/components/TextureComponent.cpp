@@ -11,6 +11,7 @@ TextureComponent::TextureComponent(sf::Sprite* _sprite) :
 {}
 
 void TextureComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+    sprite->setPosition(delegate->transform()->position().x, delegate->transform()->position().y);
     target.draw(*sprite, states);
 }
 

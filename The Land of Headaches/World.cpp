@@ -11,8 +11,6 @@ window(sf::VideoMode(800, 600), "The Land of Headaches"),
 physicsWorld(b2World(b2Vec2()))
 {
     window.setActive(true);
-//    b2BodyDef* bodyDef = new b2BodyDef();
-//    TransformComponent transformComponent = TransformComponent();
 }
 
 void World::update() {
@@ -23,7 +21,7 @@ void World::update() {
 
     for(auto object: gameObjects){
         for(auto component: object.getComponents()){
-            component.second->update(0);
+            component.second->update(clock.restart().asMilliseconds());
         }
     }
 }
@@ -40,5 +38,9 @@ void World::render() {
 
 bool World::isOpened() {
     return window.isOpen();
+}
+
+World::~World() {
+    printf("World deleting.");
 }
 

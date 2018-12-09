@@ -19,7 +19,7 @@ public:
 
     std::string name();
 
-    GameObject& delegate;
+    GameObject* delegate;
 
 private:
     std::string _name;

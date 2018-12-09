@@ -24,7 +24,7 @@ AssetManager::AssetManager() {
             std::cout << "Trying to load from " + full_path << std::endl;
             sf::Texture& texture = *(new sf::Texture());
             if ( texture.loadFromFile(full_path)) {
-                sf::Sprite sprite;
+                sf::Sprite sprite = sf::Sprite(texture);
                 sprites.insert(std::pair<std::string, sf::Sprite>(fileName, sprite));
                 std::cout << "Loaded '" + fileName << "'" << std::endl<<std::endl;
             }

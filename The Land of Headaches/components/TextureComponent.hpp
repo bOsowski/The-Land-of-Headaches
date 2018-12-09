@@ -9,7 +9,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
-#include "BaseComponent.hpp"
+#include "GameObject.hpp"
+
 
 class TextureComponent : public BaseComponent, public sf::Drawable{
 public:
