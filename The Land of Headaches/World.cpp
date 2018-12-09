@@ -27,6 +27,7 @@ void World::update() {
 }
 
 void World::render() {
+    window.clear(sf::Color::Black);
     for(auto object: gameObjects){
         for(auto component: object.getComponents()){
             if(dynamic_cast<const TextureComponent*>(component.second) != nullptr){
@@ -34,6 +35,7 @@ void World::render() {
             }
         }
     }
+    window.display();
 }
 
 bool World::isOpened() {
