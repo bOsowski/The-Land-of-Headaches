@@ -10,9 +10,17 @@
 
 class AnimationComponent : public TextureComponent{
 public:
-    AnimationComponent(sf::Sprite *_sprite, GameObject &_delegate);
+    AnimationComponent(sf::Sprite *_sprite, float _frameChangeTime, int frameCount, GameObject &_delegate);
 
+    void update(float deltaTime);
 
+private:
+    const float frameChangeTime;
+    const int frameWidth;
+    const int frameHeight;
+    const int frameCount;
+    float timer;
+    int currentFrame;
 };
 
 

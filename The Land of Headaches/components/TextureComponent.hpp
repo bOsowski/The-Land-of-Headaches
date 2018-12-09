@@ -17,10 +17,11 @@ public:
 
     void update(float deltaTime);
 
+protected:
+    sf::Sprite* sprite;
+
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
-    sf::Sprite* sprite;
 };
 
 

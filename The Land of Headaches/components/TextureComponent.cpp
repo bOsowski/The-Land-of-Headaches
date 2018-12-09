@@ -14,6 +14,4 @@ void TextureComponent::draw(sf::RenderTarget& target, sf::RenderStates states) c
     target.draw(*sprite, states);
 }
 
-void TextureComponent::update(float deltaTime){
-
-}
+void TextureComponent::update(float deltaTime){}
