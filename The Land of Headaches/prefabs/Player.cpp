@@ -4,6 +4,7 @@
 //
 
 #include "Player.hpp"
+#include "InfluenceComponent.hpp"
 
 Player::Player() {
     b2BodyDef* bodyDef = new b2BodyDef();
@@ -15,5 +16,8 @@ Player::Player() {
     gameObject->addComponent(animatorComponent);
     InputComponent* inputComponent = new InputComponent();
     gameObject->addComponent(inputComponent);
+    //todo: fix influence component
+//    InfluenceComponent* influenceComponent = new InfluenceComponent(1);
+//    gameObject->addComponent(influenceComponent);
     gameObject->instantiate();
 }

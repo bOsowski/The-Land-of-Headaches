@@ -4,7 +4,6 @@
 //
 
 #include "TextureComponent.hpp"
-#include "AssetManager.hpp"
 
 TextureComponent::TextureComponent(std::string textureName) :
         BaseComponent("TextureComponent"),
