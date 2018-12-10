@@ -24,7 +24,6 @@
 
 int main(int, char const**) {
     // Program entry point.
-    AssetManager::instance();   //instantiate asset manager here.
     Player player = Player();
 
     while(World::instance().isOpened()){

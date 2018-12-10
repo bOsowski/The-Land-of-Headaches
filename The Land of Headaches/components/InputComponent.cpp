@@ -13,20 +13,24 @@ BaseComponent("InputComponent"){
 void InputComponent::update(float deltaTime) {
     TransformComponent& transform = *delegate->transform();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-        transform.move(LEFT.value(), deltaTime);
         transform.direction = LEFT;
+        transform.move(LEFT.value(), deltaTime);
+        std::cout<<"Moving "<<transform.direction.name()<<std::endl;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-        transform.move(RIGHT.value(), deltaTime);
         transform.direction = RIGHT;
+        transform.move(RIGHT.value(), deltaTime);
+        std::cout<<"Moving "<<transform.direction.name()<<std::endl;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-        transform.move(UP.value(), deltaTime);
         transform.direction = UP;
+        transform.move(UP.value(), deltaTime);
+        std::cout<<"Moving "<<transform.direction.name()<<std::endl;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-        transform.move(DOWN.value(), deltaTime);
         transform.direction = DOWN;
+        transform.move(DOWN.value(), deltaTime);
+        std::cout<<"Moving "<<transform.direction.name()<<std::endl;
     }
     else{
         transform.move(NONE.value(), deltaTime);
