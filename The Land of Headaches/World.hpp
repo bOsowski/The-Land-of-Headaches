@@ -29,6 +29,8 @@ public:
         return *instance;
     }
 
+    sf::RenderWindow& window();
+
     b2World physicsWorld;
 
 private:
@@ -38,7 +40,7 @@ private:
 
     World();
 
-    sf::RenderWindow window;
+    sf::RenderWindow _window;
 
     sf::Clock clock;
 };

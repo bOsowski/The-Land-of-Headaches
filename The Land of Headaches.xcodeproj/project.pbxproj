@@ -23,6 +23,7 @@
 		7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */; };
 		7D9399D088EF144BD97FBD7F /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93905A7011A726D5EA5D5B /* State.cpp */; };
 		7D939A082E8EC775182AAC49 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93903E021AD76AD22385AC /* TransformComponent.cpp */; };
+		7D939C465DBF1A80F4824F4A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93931DE24ACDB8EF7ACE99 /* Player.cpp */; };
 		7D939D6E06C4DCF200C7805E /* TextureComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93991D2A98F163212ED26B /* TextureComponent.cpp */; };
 		7D939E3C4380614E3CABAEED /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93998E8C386B69F4013B2B /* AssetManager.cpp */; };
 		7D939F6BBDEFFC78F14D349C /* InputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939B5F2223A7D794A4686E /* InputComponent.cpp */; };
@@ -46,6 +47,7 @@
 		7D9391B7ACE6FB9D2C1F1F71 /* InputComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputComponent.hpp; sourceTree = "<group>"; };
 		7D9391BEA19F5E9275389978 /* TransformComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransformComponent.hpp; sourceTree = "<group>"; };
 		7D9392B361521376BE94A079 /* TextureComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureComponent.hpp; sourceTree = "<group>"; };
+		7D93931DE24ACDB8EF7ACE99 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		7D9393637D1281F1FB5BEC05 /* GameObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
 		7D939439B212DF1A55EE22E2 /* Direction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Direction.cpp; sourceTree = "<group>"; };
 		7D9396688F1CB2A77AA4A72B /* World.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = World.hpp; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 		7D939CFACD48D61740ED2AF1 /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
 		7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatorComponent.hpp; sourceTree = "<group>"; };
 		7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatorComponent.cpp; sourceTree = "<group>"; };
+		7D939FEB170EEA7D6B6B6C5C /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,7 @@
 				7D939AF1F225F93DEB0D1152 /* AssetManager.hpp */,
 				7D9391955146D890B65F5EE3 /* utils.hpp */,
 				7D939F5C1314B82779A12854 /* enums */,
+				7D939D4425430360FFDA726A /* prefabs */,
 			);
 			path = "The Land of Headaches";
 			sourceTree = "<group>";
@@ -168,6 +172,15 @@
 				7D9393637D1281F1FB5BEC05 /* GameObject.hpp */,
 			);
 			path = game_objects;
+			sourceTree = "<group>";
+		};
+		7D939D4425430360FFDA726A /* prefabs */ = {
+			isa = PBXGroup;
+			children = (
+				7D93931DE24ACDB8EF7ACE99 /* Player.cpp */,
+				7D939FEB170EEA7D6B6B6C5C /* Player.hpp */,
+			);
+			path = prefabs;
 			sourceTree = "<group>";
 		};
 		7D939F5C1314B82779A12854 /* enums */ = {
@@ -286,6 +299,7 @@
 				7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */,
 				7D939F6BBDEFFC78F14D349C /* InputComponent.cpp in Sources */,
 				7D9399D088EF144BD97FBD7F /* State.cpp in Sources */,
+				7D939C465DBF1A80F4824F4A /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

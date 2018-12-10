@@ -23,8 +23,10 @@ public:
     TransformComponent* transform();
     void instantiate();
 
-private:
+protected:
     TransformComponent* _transform;
+
+private:
     std::map<std::string, BaseComponent*> components;
 };
 

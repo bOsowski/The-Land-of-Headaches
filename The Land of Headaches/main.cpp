@@ -19,25 +19,13 @@
 #include "ResourcePath.hpp"
 #include "World.hpp"
 #include "AssetManager.hpp"
-#include "AnimatorComponent.hpp"
-#include "InputComponent.hpp"
+#include "Player.hpp"
 
 
 int main(int, char const**) {
     // Program entry point.
     AssetManager::instance();   //instantiate asset manager here.
-
-    b2BodyDef* bodyDef = new b2BodyDef();
-    bodyDef->position = b2Vec2(250,250);
-    bodyDef->type = b2BodyType::b2_dynamicBody;
-    TransformComponent* transformComponent = new TransformComponent(bodyDef, 10000);
-    GameObject gameObject = GameObject(transformComponent);
-    AnimatorComponent* animatorComponent = new AnimatorComponent("mage", 0.2, 8);
-    gameObject.addComponent(animatorComponent);
-    InputComponent* inputComponent = new InputComponent();
-    gameObject.addComponent(inputComponent);
-    gameObject.instantiate();
-//    gameObject.transform()->body->SetLinearVelocity(b2Vec2(100,100));
+    Player player = Player();
 
     while(World::instance().isOpened()){
         World::instance().update();
