@@ -9,7 +9,9 @@
 TransformComponent::TransformComponent(b2BodyDef* __bodyDef, float _movementSpeed)
         : BaseComponent("TransformComponent"),
         _bodyDef(__bodyDef),
-        movementSpeed(_movementSpeed){
+        movementSpeed(_movementSpeed),
+        direction(DOWN){
+    std::cout<<"Initially assigned direction = " << direction << "\n";
 }
 
 void TransformComponent::update(float deltaTime) {
@@ -20,8 +22,8 @@ const b2Vec2& TransformComponent::position() {
     return body->GetPosition();
 }
 
-void TransformComponent::move(Direction direction, float deltaTime) {
-    body->SetLinearVelocity(b2Vec2(direction.value().x*movementSpeed*deltaTime, direction.value().y*movementSpeed*deltaTime));
+void TransformComponent::move(const b2Vec2& velocity, float deltaTime) {
+    body->SetLinearVelocity(b2Vec2(velocity.x * deltaTime * movementSpeed, velocity.y * deltaTime * movementSpeed));
 }
 
 const b2BodyDef *TransformComponent::bodyDef() const{

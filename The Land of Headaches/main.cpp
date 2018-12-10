@@ -19,7 +19,7 @@
 #include "ResourcePath.hpp"
 #include "World.hpp"
 #include "AssetManager.hpp"
-#include "AnimationComponent.hpp"
+#include "AnimatorComponent.hpp"
 #include "InputComponent.hpp"
 
 
@@ -32,8 +32,8 @@ int main(int, char const**) {
     bodyDef->type = b2BodyType::b2_dynamicBody;
     TransformComponent* transformComponent = new TransformComponent(bodyDef, 10000);
     GameObject gameObject = GameObject(transformComponent);
-    AnimationComponent* animationComponent = new AnimationComponent("mage_walk_down.png", 0.2, 8);
-    gameObject.addComponent(animationComponent);
+    AnimatorComponent* animatorComponent = new AnimatorComponent("mage", 0.2, 8);
+    gameObject.addComponent(animatorComponent);
     InputComponent* inputComponent = new InputComponent();
     gameObject.addComponent(inputComponent);
     gameObject.instantiate();

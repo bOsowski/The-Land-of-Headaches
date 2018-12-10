@@ -8,11 +8,17 @@
 
 
 #include "AnimationComponent.hpp"
+#include "State.hpp"
+#include <map>
 
 class AnimatorComponent : public AnimationComponent {
 public:
-    AnimatorComponent(std::string textureName, float _frameChangeTime, int frameCount);
+    AnimatorComponent(std::string stateAnimationName, float _frameChangeTime, int frameCount);
 
+    void update(float deltaTime);
+
+private:
+    std::map<State, std::map<Direction, sf::Sprite*>> sprites;
 };
 
 

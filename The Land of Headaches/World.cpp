@@ -15,7 +15,6 @@ physicsWorld(b2World(b2Vec2()))
 }
 
 void World::update() {
-    std::cout<<"Window size = "<<window.getSize().x << ", "<<window.getSize().y<<std::endl;
     sf::Event event;
     while(window.pollEvent(event)){
         // catch the resize events

@@ -13,7 +13,7 @@ frameWidth(sprite->getTexture()->getSize().x / _frameCount),
 frameHeight(sprite->getTexture()->getSize().y),
 frameCount(_frameCount)
 {
-    sprite->setTextureRect(sf::IntRect(currentFrame, 0, frameWidth, frameHeight));
+    sprite->setTextureRect(sf::IntRect(currentFrame*frameWidth, 0, frameWidth, frameHeight));
 }
 
 void AnimationComponent::update(float deltaTime) {
@@ -25,9 +25,8 @@ void AnimationComponent::update(float deltaTime) {
         else{
             currentFrame = 0;
         }
-
-        sprite->setTextureRect(sf::IntRect(currentFrame*frameWidth, 0 ,frameWidth, frameHeight));
         timer = 0;
     }
+    sprite->setTextureRect(sf::IntRect(currentFrame*frameWidth, 0 ,frameWidth, frameHeight));
     TextureComponent::update(deltaTime);
 }

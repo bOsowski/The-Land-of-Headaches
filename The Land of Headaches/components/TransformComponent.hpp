@@ -17,7 +17,7 @@ public:
 
     void update(float deltaTime);
 
-    void move(Direction direction, float deltaTime);
+    void move(const b2Vec2& velocity, float deltaTime);
 
     const b2Vec2& position();
 
@@ -25,6 +25,7 @@ public:
 
     b2Body* body;
 
+    Direction direction;
 
 private:
     b2BodyDef* _bodyDef;

@@ -11,20 +11,25 @@ BaseComponent("InputComponent"){
 }
 
 void InputComponent::update(float deltaTime) {
+    TransformComponent& transform = *delegate->transform();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-        delegate->transform()->move(LEFT, deltaTime);
+        transform.move(LEFT.value(), deltaTime);
+        transform.direction = LEFT;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-        delegate->transform()->move(RIGHT, deltaTime);
+        transform.move(RIGHT.value(), deltaTime);
+        transform.direction = RIGHT;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-        delegate->transform()->move(UP, deltaTime);
+        transform.move(UP.value(), deltaTime);
+        transform.direction = UP;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-        delegate->transform()->move(DOWN, deltaTime);
+        transform.move(DOWN.value(), deltaTime);
+        transform.direction = DOWN;
     }
     else{
-        delegate->transform()->move(NONE, deltaTime);
+        transform.move(NONE.value(), deltaTime);
     }
 }
 
