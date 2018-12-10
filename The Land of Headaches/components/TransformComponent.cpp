@@ -34,3 +34,5 @@ void TransformComponent::move(const b2Vec2& velocity, float deltaTime) {
 const b2BodyDef *TransformComponent::bodyDef() const{
     return _bodyDef;
 }
+
+void TransformComponent::render(sf::RenderWindow &window) {}

@@ -18,6 +18,8 @@ public:
 
     void update(float deltaTime);
 
+    void render(sf::RenderWindow& window);
+
 protected:
     sf::Sprite* sprite;
 

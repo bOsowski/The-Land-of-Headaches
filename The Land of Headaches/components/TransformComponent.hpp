@@ -17,6 +17,8 @@ public:
 
     void update(float deltaTime);
 
+    void render(sf::RenderWindow& window);
+
     void move(const b2Vec2& velocity, float deltaTime);
 
     const b2Vec2& position();

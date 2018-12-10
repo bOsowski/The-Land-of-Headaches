@@ -6,13 +6,12 @@
 #ifndef THE_LAND_OF_HEADACHES_WORLD_HPP
 #define THE_LAND_OF_HEADACHES_WORLD_HPP
 
-#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
 #include "TextureComponent.hpp"
 #include "GameObject.hpp"
 #include <iostream>     //todo: remove this later.
 
-class World {
+class World {\
 
 public:
 

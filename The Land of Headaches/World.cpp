@@ -39,9 +39,7 @@ void World::render() {
     _window.clear(sf::Color::Black);
     for(auto object: gameObjects){
         for(auto component: object.getComponents()){
-            if(dynamic_cast<const TextureComponent*>(component.second) != nullptr){
-                _window.draw(*((TextureComponent*)component.second));
-            }
+            component.second->render(_window);
         }
     }
     _window.display();

@@ -14,6 +14,7 @@ class InputComponent : public BaseComponent{
 public:
     InputComponent();
     void update(float deltaTime);
+    void render(sf::RenderWindow& window);
 
 private:
 };

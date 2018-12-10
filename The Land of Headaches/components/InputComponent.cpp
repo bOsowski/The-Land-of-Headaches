@@ -37,4 +37,6 @@ void InputComponent::update(float deltaTime) {
     }
 }
 
+void InputComponent::render(sf::RenderWindow &window) {}
+
 

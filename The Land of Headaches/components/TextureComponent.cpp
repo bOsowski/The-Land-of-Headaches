@@ -17,3 +17,7 @@ void TextureComponent::draw(sf::RenderTarget& target, sf::RenderStates states) c
 }
 
 void TextureComponent::update(float deltaTime){}
+
+void TextureComponent::render(sf::RenderWindow &window) {
+    window.draw(*this);
+}

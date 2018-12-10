@@ -7,6 +7,7 @@
 #define THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP
 
 #include <string>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 class GameObject;
 
@@ -16,6 +17,8 @@ public:
     BaseComponent(std::string name);
 
     virtual void update(float deltaTime) = 0;
+
+    virtual void render(sf::RenderWindow& window) = 0;
 
     std::string name();
 
