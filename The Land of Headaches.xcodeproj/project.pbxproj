@@ -86,6 +86,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CC7DD6C21C0814A00E002B1 /* environment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = environment;
+			sourceTree = "<group>";
+		};
 		0CE5CCC921BB3619007072A5 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +203,7 @@
 		7D939D4425430360FFDA726A /* prefabs */ = {
 			isa = PBXGroup;
 			children = (
+				0CC7DD6C21C0814A00E002B1 /* environment */,
 				7D93931DE24ACDB8EF7ACE99 /* Player.cpp */,
 				7D939FEB170EEA7D6B6B6C5C /* Player.hpp */,
 			);

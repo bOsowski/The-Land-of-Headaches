@@ -23,5 +23,4 @@ private:
     int currentFrame;
 };
 
-
 #endif //THE_LAND_OF_HEADACHES_ANIMATIONCOMPONENT_HPP
