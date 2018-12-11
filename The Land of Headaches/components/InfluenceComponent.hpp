@@ -37,7 +37,7 @@ public:
 
     float influence = 1;
 
-    std::shared_ptr<GameIMap::InfluenceMap> imap;
+    std::shared_ptr<InfluenceMap> imap;
     TileMap m_map;
     sf::Font font;
 

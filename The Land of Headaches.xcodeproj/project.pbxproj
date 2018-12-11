@@ -17,15 +17,12 @@
 		0CE5CD3321BC5034007072A5 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5CD3221BC5034007072A5 /* textures */; };
 		7D939097745B35130CD01BAB /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939B4E89658A8761343B1A /* World.cpp */; };
 		7D9390B27AFC6676524E15D4 /* InfluenceComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939702740E47FB9EE95AC0 /* InfluenceComponent.cpp */; };
-		7D9392D6DF12FA9869EA61D3 /* Trait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939749BFED80D117090B08 /* Trait.cpp */; };
-		7D9393360D33099C3A7F49EC /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9397BE4C65FF520C1D41FB /* TileMap.cpp */; };
 		7D939384F0E7375A53E2EE6F /* AnimationComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93995D4D00164917804B34 /* AnimationComponent.cpp */; };
 		7D93951D09675BF9AEA1428F /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939CBE270F791D4CCBF476 /* GameObject.cpp */; };
 		7D9396EE634E8EC8C42C004C /* BaseComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939A70BADD947D9804203E /* BaseComponent.cpp */; };
 		7D939740010CF2EDEDFD1CB8 /* Direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939439B212DF1A55EE22E2 /* Direction.cpp */; };
 		7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */; };
 		7D9399D088EF144BD97FBD7F /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93905A7011A726D5EA5D5B /* State.cpp */; };
-		7D9399DDD98EAD1AE4D87864 /* IMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93930E2C13B9A634FBEEA1 /* IMap.cpp */; };
 		7D939A082E8EC775182AAC49 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93903E021AD76AD22385AC /* TransformComponent.cpp */; };
 		7D939C465DBF1A80F4824F4A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93931DE24ACDB8EF7ACE99 /* Player.cpp */; };
 		7D939D6E06C4DCF200C7805E /* TextureComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93991D2A98F163212ED26B /* TextureComponent.cpp */; };
@@ -34,7 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C1B895321BFF1B30074FAEC /* Vector3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
 		0CE5CCD321BB3619007072A5 /* The Land of Headaches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Land of Headaches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE5CCD721BB3619007072A5 /* The Land of Headaches-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "The Land of Headaches-Info.plist"; sourceTree = "<group>"; };
 		0CE5CCD821BB3619007072A5 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -53,7 +49,6 @@
 		7D9391B7ACE6FB9D2C1F1F71 /* InputComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputComponent.hpp; sourceTree = "<group>"; };
 		7D9391BEA19F5E9275389978 /* TransformComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransformComponent.hpp; sourceTree = "<group>"; };
 		7D9392B361521376BE94A079 /* TextureComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureComponent.hpp; sourceTree = "<group>"; };
-		7D93930E2C13B9A634FBEEA1 /* IMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMap.cpp; sourceTree = "<group>"; };
 		7D93931DE24ACDB8EF7ACE99 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		7D9393637D1281F1FB5BEC05 /* GameObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
 		7D9393ACC16D8880A2C424F6 /* TileMap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TileMap.hpp; sourceTree = "<group>"; };
@@ -61,8 +56,6 @@
 		7D9394C4D03BFF1A3726498F /* Trait.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Trait.hpp; sourceTree = "<group>"; };
 		7D9396688F1CB2A77AA4A72B /* World.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = World.hpp; sourceTree = "<group>"; };
 		7D939702740E47FB9EE95AC0 /* InfluenceComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InfluenceComponent.cpp; sourceTree = "<group>"; };
-		7D939749BFED80D117090B08 /* Trait.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trait.cpp; sourceTree = "<group>"; };
-		7D9397BE4C65FF520C1D41FB /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileMap.cpp; sourceTree = "<group>"; };
 		7D93986D3BB071B9AAEFA6CA /* AnimationComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimationComponent.hpp; sourceTree = "<group>"; };
 		7D939876245E3802B006F55A /* BaseComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseComponent.hpp; sourceTree = "<group>"; };
 		7D939891763AEAE541FA0B13 /* Direction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Direction.hpp; sourceTree = "<group>"; };
@@ -75,7 +68,6 @@
 		7D939B5F2223A7D794A4686E /* InputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputComponent.cpp; sourceTree = "<group>"; };
 		7D939CBE270F791D4CCBF476 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		7D939CFACD48D61740ED2AF1 /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
-		7D939D37B32A19A8AAE06058 /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
 		7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatorComponent.hpp; sourceTree = "<group>"; };
 		7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatorComponent.cpp; sourceTree = "<group>"; };
 		7D939F5E9784553968DAA620 /* InfluenceComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InfluenceComponent.hpp; sourceTree = "<group>"; };
@@ -129,7 +121,6 @@
 				7D939F5C1314B82779A12854 /* enums */,
 				7D939D4425430360FFDA726A /* prefabs */,
 				7D9397FBA93B3347E5606828 /* influence_map */,
-				7D9393E22C31CDE4D3E4BD93 /* game-math */,
 			);
 			path = "The Land of Headaches";
 			sourceTree = "<group>";
@@ -183,23 +174,11 @@
 			path = components;
 			sourceTree = "<group>";
 		};
-		7D9393E22C31CDE4D3E4BD93 /* game-math */ = {
-			isa = PBXGroup;
-			children = (
-				0C1B895321BFF1B30074FAEC /* Vector3.h */,
-				7D939D37B32A19A8AAE06058 /* Vector2.h */,
-			);
-			path = "game-math";
-			sourceTree = "<group>";
-		};
 		7D9397FBA93B3347E5606828 /* influence_map */ = {
 			isa = PBXGroup;
 			children = (
-				7D93930E2C13B9A634FBEEA1 /* IMap.cpp */,
 				7D939025A2172D2B8CFCB1FF /* IMap.hpp */,
-				7D939749BFED80D117090B08 /* Trait.cpp */,
 				7D9394C4D03BFF1A3726498F /* Trait.hpp */,
-				7D9397BE4C65FF520C1D41FB /* TileMap.cpp */,
 				7D9393ACC16D8880A2C424F6 /* TileMap.hpp */,
 			);
 			path = influence_map;
@@ -341,9 +320,6 @@
 				7D9399D088EF144BD97FBD7F /* State.cpp in Sources */,
 				7D939C465DBF1A80F4824F4A /* Player.cpp in Sources */,
 				7D9390B27AFC6676524E15D4 /* InfluenceComponent.cpp in Sources */,
-				7D9399DDD98EAD1AE4D87864 /* IMap.cpp in Sources */,
-				7D9392D6DF12FA9869EA61D3 /* Trait.cpp in Sources */,
-				7D9393360D33099C3A7F49EC /* TileMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

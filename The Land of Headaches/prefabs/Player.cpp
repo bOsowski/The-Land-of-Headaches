@@ -6,6 +6,8 @@
 #include "Player.hpp"
 #include "InfluenceComponent.hpp"
 
+class b2BodyDef;
+
 Player::Player() {
     b2BodyDef* bodyDef = new b2BodyDef();
     bodyDef->position = b2Vec2(World::instance().window().getSize().x/2,World::instance().window().getSize().y/2);

@@ -9,128 +9,134 @@
 #ifndef THE_LAND_OF_HEADACHES_IMAP_HPP
 #define THE_LAND_OF_HEADACHES_IMAP_HPP
 
-class Vector2;
-
 #include <cstdlib>
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
 #include <iomanip>
-#include "../game-math/Vector2.h"
+#include <cmath>
 
-using namespace GameMath;
-using namespace std;
-namespace GameIMap {
-    enum class PropCurve {
-        Linear,
-    };
+//using namespace GameMath;
+//using namespace std;
+enum class PropCurve {
+    Linear,
+};
 
-    class InfluenceMap {
-    public:
-        GameMath::Vector2 m_AnchorLocation;        // world location
-        float m_fCellSize;                // cell size in world units
-        int m_iWidth;
-        int m_iHeight;
-        vector<vector<float>> m_Grid;    // actual contents
+class InfluenceMap {
+public:
+    sf::Vector2f m_AnchorLocation;        // world location
+    float m_fCellSize;                // cell size in world units
+    int m_iWidth;
+    int m_iHeight;
+    std::vector<std::vector<float>> m_Grid;    // actual contents
 
-    public:
-        InfluenceMap(int _width, int _height, float _x = 0.0f, float _y = 0.0f, int _cellSize = 1) :
-                m_AnchorLocation(_x, _y), m_iWidth(_width), m_iHeight(_height), m_fCellSize(_cellSize) {
-            m_Grid.resize(m_iHeight);
-            for (int i = 0; i < m_iHeight; i++) m_Grid[i].resize(m_iWidth, 0.0f);
+public:
+    InfluenceMap(int _width, int _height, float _x = 0.0f, float _y = 0.0f, int _cellSize = 1) :
+            m_AnchorLocation(_x, _y), m_iWidth(_width), m_iHeight(_height), m_fCellSize(_cellSize) {
+        m_Grid.resize(m_iHeight);
+        for (int i = 0; i < m_iHeight; i++) m_Grid[i].resize(m_iWidth, 0.0f);
+    }
+
+    void setCellValue(int _x, int _y, float _value) {
+        if (_x >= 0 && _x < m_iWidth && _y >= 0 && _y < m_iHeight) {
+            m_Grid[_x][_y] = _value;
         }
+    }
 
-        void setCellValue(int _x, int _y, float _value) {
-            if (_x >= 0 && _x < m_iWidth && _y >= 0 && _y < m_iHeight) {
-                m_Grid[_x][_y] = _value;
+    float getCellValue(int _x, int _y) {
+        return (_x >= 0 && _x < m_iWidth && _y >= 0 && _y < m_iHeight) ? m_Grid[_x][_y] : 0.0f;
+    }
+
+    void addCellValue(int _x, int _y, float _value) {
+        if (_x >= 0 && _x < m_iWidth && _y >= 0 && _y < m_iHeight) {
+            m_Grid[_x][_y] += _value;
+        }
+    }
+
+    void propagateInfluence(int _centerX, int _centerY, int _radius, PropCurve _propType, float _magnitude = 1.0f) {
+        if (_centerX < 0 || _centerX >= m_iWidth || _centerY < 0 || _centerY >= m_iHeight) return;
+
+        int startX = _centerX - _radius;
+        int startY = _centerY - _radius;
+        int endX = _centerX + _radius;
+        int endY = _centerY + _radius;
+
+        int minX = std::max(0, startX);
+        int maxX = std::min(endX, m_iWidth);
+        int minY = std::max(0, startY);
+        int maxY = std::min(endY, m_iHeight);
+
+        for (int y = minY; y < maxY; y++) {
+            for (int x = minX; x < maxX; x++) {
+                float distance = getNormalizedDistance(y, _centerY, x, _centerX, _radius);
+                m_Grid[x][y] += propValue(distance, _propType) * _magnitude;
             }
         }
+    }
 
-        float getCellValue(int _x, int _y) {
-            return (_x >= 0 && _x < m_iWidth && _y >= 0 && _y < m_iHeight) ? m_Grid[_x][_y] : 0.0f;
+    float getNormalizedDistance(float _y, float _centerY, float _x, float _centerX, float _radius) {
+        float result = std::sqrt((_y - _centerY) * (_y - _centerY) + (_x - _centerX) * (_x - _centerX)) / _radius;
+        return (result > 1) ? 1 : result;
+    }
+
+    float propValue(float _distance, PropCurve _propCurve) {
+        assert(_distance >= 0.0f && _distance <= 1.0f);
+
+        switch (_propCurve) {
+            case PropCurve::Linear:
+                return 1.0f - _distance;
         }
+    }
 
-        void addCellValue(int _x, int _y, float _value) {
-            if (_x >= 0 && _x < m_iWidth && _y >= 0 && _y < m_iHeight) {
-                m_Grid[_x][_y] += _value;
+    void copyMap(InfluenceMap *_sourceMap, float _magnitude = 1.0f) {
+        if (_sourceMap == nullptr) return;
+        if (m_iHeight != _sourceMap->m_iHeight || m_iWidth != _sourceMap->m_iWidth) return;
+
+        for (int y = 0; y < m_iHeight; y++) {
+            for (int x = 0; x < m_iWidth; x++) {
+                m_Grid[x][y] = _sourceMap->getCellValue(x, y) * _magnitude;
             }
         }
+    }
 
-        void propagateInfluence(int _centerX, int _centerY, int _radius, PropCurve _propType, float _magnitude = 1.0f) {
-            if (_centerX < 0 || _centerX >= m_iWidth || _centerY < 0 || _centerY >= m_iHeight) return;
+    void addMap(InfluenceMap *_sourceMap, float _magnitude = 1.0f) {
+        if (_sourceMap == nullptr) return;
+        if (m_iHeight != _sourceMap->m_iHeight || m_iWidth != _sourceMap->m_iWidth) return;
 
-            int startX = _centerX - _radius;
-            int startY = _centerY - _radius;
-            int endX = _centerX + _radius;
-            int endY = _centerY + _radius;
-
-            int minX = max(0, startX);
-            int maxX = min(endX, m_iWidth);
-            int minY = max(0, startY);
-            int maxY = min(endY, m_iHeight);
-
-            for (int y = minY; y < maxY; y++) {
-                for (int x = minX; x < maxX; x++) {
-                    float distance = getNormalizedDistance(y, _centerY, x, _centerX, _radius);
-                    m_Grid[x][y] += propValue(distance, _propType) * _magnitude;
-                }
+        for (int y = 0; y < m_iHeight; y++) {
+            for (int x = 0; x < m_iWidth; x++) {
+                m_Grid[x][y] += _sourceMap->getCellValue(x, y) * _magnitude;
             }
         }
+    }
 
-        float getNormalizedDistance(float _y, float _centerY, float _x, float _centerX, float _radius) {
-            float result = sqrt((_y - _centerY) * (_y - _centerY) + (_x - _centerX) * (_x - _centerX)) / _radius;
-            return (result > 1) ? 1 : result;
-        }
-
-        float propValue(float _distance, PropCurve _propCurve) {
-            assert(_distance >= 0.0f && _distance <= 1.0f);
-
-            switch (_propCurve) {
-                case PropCurve::Linear:
-                    return 1.0f - _distance;
+    void clear() {
+        for (int y = 0; y < m_iHeight; y++) {
+            for (int x = 0; x < m_iWidth; x++) {
+                m_Grid[x][y] = 0;
             }
         }
+    }
 
-        void copyMap(InfluenceMap *_sourceMap, float _magnitude = 1.0f) {
-            if (_sourceMap == nullptr) return;
-            if (m_iHeight != _sourceMap->m_iHeight || m_iWidth != _sourceMap->m_iWidth) return;
 
-            for (int y = 0; y < m_iHeight; y++) {
-                for (int x = 0; x < m_iWidth; x++) {
-                    m_Grid[x][y] = _sourceMap->getCellValue(x, y) * _magnitude;
-                }
-            }
-        }
-
-        void addMap(InfluenceMap *_sourceMap, float _magnitude = 1.0f) {
-            if (_sourceMap == nullptr) return;
-            if (m_iHeight != _sourceMap->m_iHeight || m_iWidth != _sourceMap->m_iWidth) return;
-
-            for (int y = 0; y < m_iHeight; y++) {
-                for (int x = 0; x < m_iWidth; x++) {
-                    m_Grid[x][y] += _sourceMap->getCellValue(x, y) * _magnitude;
-                }
-            }
-        }
-
-        void addMap(InfluenceMap *_sourceMap, int _centerX, int _centerY, float _magnitude = 1.0f, int _offsetX = 0, int _offsetY = 0) {
-            if (_sourceMap == nullptr) return;
-
-            int startX = _centerX + _offsetX - (_sourceMap->m_iWidth >> 1);
-            int startY = _centerY + _offsetY - (_sourceMap->m_iHeight >> 1);
-
-            for (int y = 0; y < _sourceMap->m_iHeight; y++) {
-                for (int x = 0; x < _sourceMap->m_iWidth; x++) {
-                    int targetX = x + startX;
-                    int targetY = y + startY;
-
-                    if (targetX >= 0 && targetX < m_iWidth && targetY >= 0 && targetY < m_iHeight) {
-                        m_Grid[targetX][targetY] += _sourceMap->getCellValue(x, y) * _magnitude;
-                    }
-                }
-            }
-        }
+//    void addMap(InfluenceMap *_sourceMap, int _centerX, int _centerY, float _magnitude = 1.0f, int _offsetX = 0, int _offsetY = 0) {
+//        if (_sourceMap == nullptr) return;
+//
+//        int startX = _centerX + _offsetX - (_sourceMap->m_iWidth >> 1);
+//        int startY = _centerY + _offsetY - (_sourceMap->m_iHeight >> 1);
+//
+//        for (int y = 0; y < _sourceMap->m_iHeight; y++) {
+//            for (int x = 0; x < _sourceMap->m_iWidth; x++) {
+//                int targetX = x + startX;
+//                int targetY = y + startY;
+//
+//                if (targetX >= 0 && targetX < m_iWidth && targetY >= 0 && targetY < m_iHeight) {
+//                    m_Grid[targetX][targetY] += _sourceMap->getCellValue(x, y) * _magnitude;
+//                }
+//            }
+//        }
+//    }
 
         void addToMap(InfluenceMap *_targetMap, int _centerX, int _centerY, float _magnitude = 1.0f, int _offsetX = 0, int _offsetY = 0) {
             if (_targetMap == nullptr) return;
@@ -145,10 +151,10 @@ namespace GameIMap {
             if (m_AnchorLocation.x < 0.0f) {negAdjX = -1;}
             if (m_AnchorLocation.y < 0.0f) {negAdjY = -1;}
 
-            int minX = max(0, negAdjX - startX);
-            int maxX = min(targetMapWidth, m_iWidth - startX + negAdjX);
-            int minY = max(0, negAdjY - startY);
-            int maxY = min(targetMapHeight, m_iHeight - startY + negAdjY);
+            int minX = std::max(0, negAdjX - startX);
+            int maxX = std::min(targetMapWidth, m_iWidth - startX + negAdjX);
+            int minY = std::max(0, negAdjY - startY);
+            int maxY = std::min(targetMapHeight, m_iHeight - startY + negAdjY);
 
             for (int y = minY; y < maxY; y++) {
                 for (int x = minX; x < maxX; x++) {
@@ -159,38 +165,11 @@ namespace GameIMap {
                 }
             }
         }
-
-        void inverse() {
-            for (int y = 0; y < m_iHeight; y++) {
-                for (int x = 0; x < m_iWidth; x++) {
-                    m_Grid[x][y] = -m_Grid[x][y];
-                }
-            }
-        }
-
-        void clear() {
-            for (int y = 0; y < m_iHeight; y++) {
-                for (int x = 0; x < m_iWidth; x++) {
-                    m_Grid[x][y] = 0;
-                }
-            }
-        }
-
-        void print() {
-            cout << fixed;
-            cout << setprecision(2);
-            for (int y = 0; y < m_iHeight; y++) {
-                for (int x = 0; x < m_iWidth; x++) {
-                    cout << m_Grid[x][y] << "\t";
-                }
-                cout << endl;
-            }
-        }
     };
 
     class LayerMapCollection {
     private:
-        map<int, InfluenceMap *> m_Collection;
+        std::map<int, InfluenceMap *> m_Collection;
 
     public:
         void addLayer(const int _layerId, InfluenceMap *_imap) {
@@ -207,8 +186,8 @@ namespace GameIMap {
             return nullptr;
         }
 
-        vector<InfluenceMap *> getLayers(vector<int> _ids) {
-            vector<InfluenceMap *> result;
+        std::vector<InfluenceMap *> getLayers(std::vector<int> _ids) {
+            std::vector<InfluenceMap *> result;
             for (auto it = _ids.begin(); it != _ids.end(); it++) {
                 if (m_Collection.count(*it)) {
                     result.push_back(m_Collection[*it]);
@@ -217,8 +196,8 @@ namespace GameIMap {
             return result;
         }
 
-        vector<InfluenceMap *> getOtherLayers(int _id) {
-            vector<InfluenceMap *> result;
+        std::vector<InfluenceMap *> getOtherLayers(int _id) {
+            std::vector<InfluenceMap *> result;
             for (auto it = m_Collection.begin(); it != m_Collection.end(); it++) {
                 if (it->first != _id) {
                     result.push_back(it->second);
@@ -231,13 +210,13 @@ namespace GameIMap {
     class InterestMap : public InfluenceMap {
     private:
         PropCurve m_FallCurve;
-        vector<vector<float>> m_Template;
+        std::vector<std::vector<float>> m_Template;
 
     public:
         InterestMap(PropCurve _fallCurve, int _width, int _height, float _x = 0.0f, float _y = 0.0f, int _cellSize = 1)
                 :
                 InfluenceMap(_width, _height, _x, _y, _cellSize) {
-            propagateInfluence(_width >> 1, _height >> 1, max(_width, _height), _fallCurve, 1.0f);
+            propagateInfluence(_width >> 1, _height >> 1, std::max(_width, _height), _fallCurve, 1.0f);
             m_Template = m_Grid;
         }
 
@@ -253,8 +232,8 @@ namespace GameIMap {
             _targetMap->addToMap(this, _centerX, _centerY, _magnitude, _offsetX, _offsetY);
         }
 
-        GameMath::Vector2 getHighestCell() {
-            GameMath::Vector2 result = GameMath::Vector2::zero();
+        sf::Vector2f getHighestCell() {
+            sf::Vector2f result = sf::Vector2f(0,0);
             int randomX = rand() % m_iWidth;
             int randomY = rand() % m_iHeight;
             float maxValue = m_Grid[randomX][randomY];
@@ -270,11 +249,9 @@ namespace GameIMap {
                     }
                 }
             }
-
             return result;
         }
     };
-}
 
 
 #endif //THE_LAND_OF_HEADACHES_IMAP_HPP

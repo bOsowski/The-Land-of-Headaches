@@ -16,7 +16,7 @@ influence(_influence)
     sf::Vector2f anchorLoc(0, 0);
     sf::Vector2u mapDim(32, 32);//swapped x and y values due to run-time memory access error - revisit
     unsigned int tileSize = 32;
-    imap = std::make_shared<GameIMap::InfluenceMap>(mapDim.x, mapDim.y, anchorLoc.x, anchorLoc.y, tileSize);
+    imap = std::make_shared<InfluenceMap>(mapDim.x, mapDim.y, anchorLoc.x, anchorLoc.y, tileSize);
 
     m_map.load(sf::Vector2u(tileSize, tileSize), tileSize, tileSize);
 }
@@ -58,8 +58,8 @@ void InfluenceComponent::update(float deltaTime) {
         }
         //both player and enemys need to be updated as imap has been cleared at start
         for (int i = 0; i < 2; i++) {
-            imap->propagateInfluence(ePlayerPosition.x, ePlayerPosition.y, 10, GameIMap::PropCurve::Linear, -1);
-            imap->propagateInfluence(playerPosition.x, playerPosition.y, 10, GameIMap::PropCurve::Linear, 1);
+            imap->propagateInfluence(ePlayerPosition.x, ePlayerPosition.y, 10, PropCurve::Linear, -1);
+            imap->propagateInfluence(playerPosition.x, playerPosition.y, 10, PropCurve::Linear, 1);
         }
 
 
@@ -75,8 +75,8 @@ void InfluenceComponent::update(float deltaTime) {
 
 sf::Text InfluenceComponent::utilityFn(float val, sf::Vector2i pos) {
     std::stringstream stream;
-    stream << fixed << setprecision(1) << val;
-    string s = stream.str();
+    stream << std::fixed << std::setprecision(1) << val;
+    std::string s = stream.str();
 
     sf::Text sfTxt;
 

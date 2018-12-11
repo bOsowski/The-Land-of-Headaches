@@ -13,8 +13,6 @@
 #include <map>
 #include <iomanip>
 #include "IMap.hpp"
-#include "../game-math/Vector2.h"
-#include "../game-math/Vector3.h"
 
 class Blackboard;
 
