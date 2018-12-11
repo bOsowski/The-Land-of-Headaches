@@ -7,7 +7,6 @@
 #define THE_LAND_OF_HEADACHES_INFLUENCECOMPONENT_HPP
 
 
-#include "BaseComponent.hpp"
 #include <SFML/Graphics/Text.hpp>
 #include <sstream>
 #include "IMap.hpp"
@@ -22,6 +21,9 @@
 #include <algorithm>
 #include <map>
 #include <iomanip>
+#include "GameObject.hpp"
+
+class GameObject;
 
 class InfluenceComponent : public BaseComponent {
 public:
@@ -38,6 +40,9 @@ public:
     std::shared_ptr<GameIMap::InfluenceMap> imap;
     TileMap m_map;
     sf::Font font;
+
+    bool showInfluenceMapColours = true;
+    bool showInfluenceValues = true;
 };
 
 

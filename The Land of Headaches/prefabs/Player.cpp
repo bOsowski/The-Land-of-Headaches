@@ -17,7 +17,7 @@ Player::Player() {
     InputComponent* inputComponent = new InputComponent();
     gameObject->addComponent(inputComponent);
     //todo: fix influence component
-//    InfluenceComponent* influenceComponent = new InfluenceComponent(1);
-//    gameObject->addComponent(influenceComponent);
+    InfluenceComponent* influenceComponent = new InfluenceComponent(1);
+    gameObject->addComponent(influenceComponent);
     gameObject->instantiate();
 }

@@ -31,5 +31,5 @@ int main(int, char const**) {
         World::instance().render();
     }
 
-    return EXIT_SUCCESS;
+    return 0;
 }

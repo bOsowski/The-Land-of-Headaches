@@ -24,11 +24,6 @@ const b2Vec2& TransformComponent::position() {
 
 void TransformComponent::move(const b2Vec2& velocity, float deltaTime) {
     body->SetLinearVelocity(b2Vec2(velocity.x * deltaTime * movementSpeed, velocity.y * deltaTime * movementSpeed));
-
-    if(velocity.x != 0 || velocity.y != 0){
-        std::cout<<"Moving with velocity ("<<velocity.x << ", "<<velocity.y<<")\n";
-        std::cout<<"Linear velocity of the body = ("<<body->GetLinearVelocity().x << ", "<<body->GetLinearVelocity().y<<")\n";
-    }
 }
 
 const b2BodyDef *TransformComponent::bodyDef() const{
