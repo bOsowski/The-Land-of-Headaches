@@ -5,8 +5,9 @@
 
 #include "GameObject.hpp"
 
-GameObject::GameObject(TransformComponent* transformComponent) {
+GameObject::GameObject(TransformComponent* transformComponent){
     _transform = transformComponent;
+    _transform->body = World::instance().physicsWorld.CreateBody(transform()->bodyDef());
     addComponent(transformComponent);
 }
 
@@ -25,7 +26,6 @@ TransformComponent *GameObject::transform() {
 
 void GameObject::instantiate() {
     World::instance().gameObjects.push_back(*this);
-    transform()->body = World::instance().physicsWorld.CreateBody(transform()->bodyDef());
 }
 
 

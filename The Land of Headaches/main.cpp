@@ -20,11 +20,14 @@
 #include "World.hpp"
 #include "AssetManager.hpp"
 #include "Player.hpp"
+#include "Dungeon.hpp"
 
 
 int main(int, char const**) {
+    srand((time(NULL)));
     // Program entry point.
     Player player = Player();
+    Dungeon(sf::IntRect(256,256,10,10), 2, 3, 4);
 
     while(World::instance().isOpened()){
         World::instance().update();

@@ -20,12 +20,15 @@ public:
 
     void render(sf::RenderWindow& window);
 
+    sf::Vector2u dimensions(){
+        return sprite->getTexture()->getSize();
+    }
+
 protected:
     sf::Sprite* sprite;
 
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };
-
 
 #endif //THE_LAND_OF_HEADACHES_GRAPHICSCOMPONENT_HPP

@@ -31,6 +31,17 @@ void InputComponent::update(float deltaTime) {
     else{
         transform.move(NONE.value(), deltaTime);
     }
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+        b2BodyDef* bulletBodyDef = new b2BodyDef();
+        bulletBodyDef->type = b2BodyType::b2_dynamicBody;
+        bulletBodyDef->position = *new b2Vec2(transform.position());
+        GameObject* bullet = new GameObject(new TransformComponent(bulletBodyDef, 100000));
+        TextureComponent* bulletTexture = new TextureComponent("coin_0.png");
+        bullet->addComponent(bulletTexture);
+        bullet->instantiate();
+        bullet->transform()->move(transform.direction.value(), deltaTime);
+    }
 }
 
 void InputComponent::render(sf::RenderWindow &window) {}

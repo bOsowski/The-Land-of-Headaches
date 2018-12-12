@@ -11,7 +11,7 @@ TransformComponent::TransformComponent(b2BodyDef* __bodyDef, float _movementSpee
         _bodyDef(__bodyDef),
         movementSpeed(_movementSpeed),
         direction(DOWN){
-    std::cout<<"Initially assigned direction = " << direction << "\n";
+    //std::cout<<"Initially assigned direction = " << direction << "\n";
 }
 
 void TransformComponent::update(float deltaTime) {
