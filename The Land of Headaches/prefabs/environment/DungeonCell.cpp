@@ -10,20 +10,24 @@ void DungeonCell::addWall(Direction direction) {
     wallBody->position = cell->transform()->position();
     wallBody->type = b2_staticBody;
     b2EdgeShape* wallShape = new b2EdgeShape();
+    b2FixtureDef *fixtureDef = new b2FixtureDef();
 
-    wallShape->Set(b2Vec2(0,0), b2Vec2(0,0));   //todo: change this based on direction.
     switch(direction) {
         case UP:
             wallBody->position = b2Vec2(cell->transform()->position().x, cell->transform()->position().y - tileSize.y-2);
+            wallShape->Set(wallBody->position, b2Vec2(wallBody->position.x+tileSize.x, wallBody->position.y));
             break;
         case DOWN:
             wallBody->position = b2Vec2(cell->transform()->position().x, cell->transform()->position().y-2);
+            wallShape->Set(wallBody->position, b2Vec2(wallBody->position.x+tileSize.x, wallBody->position.y));
             break;
         case LEFT:
             wallBody->position = b2Vec2(cell->transform()->position().x, cell->transform()->position().y- tileSize.y-2);
+            wallShape->Set(wallBody->position, b2Vec2(wallBody->position.x, wallBody->position.y+tileSize.y));
             break;
         case RIGHT:
             wallBody->position = b2Vec2(cell->transform()->position().x+tileSize.x, cell->transform()->position().y- tileSize.y-2);
+            wallShape->Set(wallBody->position, b2Vec2(wallBody->position.x, wallBody->position.y+tileSize.y));
             break;
         default:
             printf("Wall has not been set up properly. Invalid direction.");
@@ -33,10 +37,9 @@ void DungeonCell::addWall(Direction direction) {
     GameObject *wall = new GameObject(wallTransformComponent, 0);
     TextureComponent *wallTextureComponent = new TextureComponent("wall" + direction.name() + ".png");
     wall->addComponent(wallTextureComponent);
-    b2FixtureDef *fixtureDef = new b2FixtureDef();
     fixtureDef->shape = wallShape;
     fixtureDef->friction = 0.0f;
-    wallTransformComponent->body->CreateFixture(fixtureDef);
+    //wallTransformComponent->body->CreateFixture(fixtureDef);  //todo: fix collision line positioning.
     wall->instantiate();
     walls.insert(std::pair<Direction, GameObject *>(direction, wall));
 

@@ -21,17 +21,21 @@
 #include "AssetManager.hpp"
 #include "Player.hpp"
 #include "Dungeon.hpp"
-
+#include "SFMLDebugDraw.hpp"
 
 int main(int, char const**) {
+    World& world = World::instance();
+    SFMLDebugDraw debugDraw = SFMLDebugDraw(world.window());
+    world.physicsWorld.SetDebugDraw(&debugDraw);
+
     srand((time(NULL)));
     // Program entry point.
     Player player = Player();
-    Dungeon(sf::IntRect(128,512-128,10,10), 2, 2, 1);
+    Dungeon(sf::IntRect(128,512-128,10,10), 2, 4, 10);
 
-    while(World::instance().isOpened()){
-        World::instance().update();
-        World::instance().render();
+    while(world.isOpened()){
+        world.update();
+        world.render();
     }
 
     return 0;

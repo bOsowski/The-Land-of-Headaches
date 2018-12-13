@@ -21,5 +21,12 @@ Player::Player() {
     //todo: fix influence component
     //InfluenceComponent* influenceComponent = new InfluenceComponent(1);
     //gameObject->addComponent(influenceComponent);
+
+    b2PolygonShape* collisionShape = new b2PolygonShape();
+    collisionShape->SetAsBox(tileSize.x/2, tileSize.y/2, b2Vec2(0, 0), 0);
+    b2FixtureDef* fixtureDef = new b2FixtureDef();
+    fixtureDef->shape = collisionShape;
+    fixtureDef->friction = 0;
+    gameObject->transform()->body->CreateFixture(fixtureDef);
     gameObject->instantiate();
 }

@@ -55,6 +55,9 @@ private:
 
     void createMazes(){
         maze = new DungeonMaze(&bounds, &dungeonRooms);
+        for(auto mazeCell: maze->cells){
+            dungeonCells.insert(std::pair<sf::Vector2f*, DungeonCell*>(mazeCell.first, mazeCell.second));
+        }
     }
 
     void createWalls(){

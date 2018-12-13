@@ -7,9 +7,8 @@
 #define THE_LAND_OF_HEADACHES_WORLD_HPP
 
 #include <SFML/System/Clock.hpp>
-#include "TextureComponent.hpp"
-#include "GameObject.hpp"
 #include <iostream>     //todo: remove this later.
+#include "TextureComponent.hpp"
 
 class World {
 
@@ -44,6 +43,7 @@ private:
     sf::Clock clock;
 
     void sortGameObjects();
+
 };
 
 

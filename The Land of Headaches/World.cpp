@@ -4,6 +4,7 @@
 //
 
 #include "World.hpp"
+#include "SFMLDebugDraw.hpp"
 
 World::World()
 :
@@ -38,6 +39,7 @@ void World::update() {
 void World::render() {
     sortGameObjects();
     _window.clear(sf::Color::Black);
+    physicsWorld.DrawDebugData();
     for(auto object: gameObjects){
         for(auto component: object.getComponents()){
             component.second->render(_window);
@@ -66,4 +68,6 @@ void World::sortGameObjects() {
         else return lhs.transform()->position().y < rhs.transform()->position().y;
     });
 }
+
+
 
