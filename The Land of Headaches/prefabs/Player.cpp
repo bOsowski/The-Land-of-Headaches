@@ -12,7 +12,7 @@ Player::Player() {
     b2BodyDef* bodyDef = new b2BodyDef();
     bodyDef->position = b2Vec2(World::instance().window().getSize().x/2,World::instance().window().getSize().y/2);
     bodyDef->type = b2BodyType::b2_dynamicBody;
-    TransformComponent* transformComponent = new TransformComponent(bodyDef, 10000);
+    TransformComponent* transformComponent = new TransformComponent(bodyDef, 40000);
     gameObject = new GameObject(transformComponent, 0);
     AnimatorComponent* animatorComponent = new AnimatorComponent("mage", 0.2, 8);
     gameObject->addComponent(animatorComponent);
@@ -23,7 +23,7 @@ Player::Player() {
     //gameObject->addComponent(influenceComponent);
 
     b2PolygonShape* collisionShape = new b2PolygonShape();
-    collisionShape->SetAsBox(tileSize.x/2, tileSize.y/2, b2Vec2(0, 0), 0);
+    collisionShape->SetAsBox(tileSize.x/3, tileSize.y/4, b2Vec2(0, -5), 0);
     b2FixtureDef* fixtureDef = new b2FixtureDef();
     fixtureDef->shape = collisionShape;
     fixtureDef->friction = 0;
