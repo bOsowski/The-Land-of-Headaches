@@ -27,7 +27,7 @@ public:
         printf("creating mazes.\n");
         createMazes();
         printf("created mazes.\n");
-        //createWallsAndInstantiate();
+        createWalls();
     }
 
 private:
@@ -57,8 +57,10 @@ private:
         maze = new DungeonMaze(&bounds, &dungeonRooms);
     }
 
-    void createWallsAndInstantiate(){
-
+    void createWalls(){
+        for(auto cell: dungeonCells){
+            cell.second->createWalls(dungeonCells);
+        }
     }
 };
 

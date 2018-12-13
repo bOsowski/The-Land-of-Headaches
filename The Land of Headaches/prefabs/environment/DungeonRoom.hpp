@@ -22,10 +22,12 @@ public:
     {
         bounds.width = getRandom(minRoomSize, maxRoomSize);
         bounds.height = getRandom(minRoomSize, maxRoomSize);
-        float x = ((getRandom(parentArea->left, (parentArea->left + parentArea->width - bounds.width)) + tileSize.x/2) / tileSize.x) * tileSize.x;
-        float y = ((getRandom(parentArea->top-parentArea->height, (parentArea->top-bounds.height)) + tileSize.x/2) / tileSize.x) * tileSize.x;
-        bounds.left = static_cast<int>(x);
-        bounds.top = static_cast<int>(y);
+        std::cout<<"Bound height = "<<bounds.height<<std::endl;
+        std::cout<<"Bound width = "<<bounds.width<<std::endl;
+        int x = ((getRandom(parentArea->left, (parentArea->left + parentArea->width - bounds.width*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
+        int y = ((getRandom(parentArea->top-parentArea->height+bounds.height*tileSize.x, (parentArea->top-bounds.height*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
+        bounds.left = x;
+        bounds.top = y;
     }
 
     bool create(){
@@ -43,9 +45,9 @@ public:
             int y = 0;
             while (y < bounds.height) {
                 insertRoom(sf::Vector2f(bounds.left + x*tileSize.x, bounds.top - y*tileSize.y));
-                y++;
+                y ++;
             }
-            x++;
+            x ++;
         }
         printf("Successfully created a room.\n");
         return true;

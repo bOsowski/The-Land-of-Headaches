@@ -11,7 +11,7 @@
 #include "GameObject.hpp"
 #include <iostream>     //todo: remove this later.
 
-class World {\
+class World {
 
 public:
 
@@ -42,6 +42,8 @@ private:
     sf::RenderWindow _window;
 
     sf::Clock clock;
+
+    void sortGameObjects();
 };
 
 

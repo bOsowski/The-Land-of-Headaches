@@ -36,7 +36,7 @@ void InputComponent::update(float deltaTime) {
         b2BodyDef* bulletBodyDef = new b2BodyDef();
         bulletBodyDef->type = b2BodyType::b2_dynamicBody;
         bulletBodyDef->position = *new b2Vec2(transform.position());
-        GameObject* bullet = new GameObject(new TransformComponent(bulletBodyDef, 100000));
+        GameObject* bullet = new GameObject(new TransformComponent(bulletBodyDef, 100000), 0);
         TextureComponent* bulletTexture = new TextureComponent("coin_0.png");
         bullet->addComponent(bulletTexture);
         bullet->instantiate();

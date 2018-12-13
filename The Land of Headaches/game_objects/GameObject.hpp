@@ -17,11 +17,12 @@ class BaseComponent;
 class GameObject {
 
 public:
-    GameObject(TransformComponent* transformComponent);
+    GameObject(TransformComponent* transformComponent, int _layer);
     void addComponent(BaseComponent* component);
     const std::map<std::string, BaseComponent*> getComponents();
-    TransformComponent* transform();
+    TransformComponent* transform() const;
     void instantiate();
+    int layer;
 
 protected:
     TransformComponent* _transform;

@@ -27,7 +27,7 @@ int main(int, char const**) {
     srand((time(NULL)));
     // Program entry point.
     Player player = Player();
-    Dungeon(sf::IntRect(256,256,10,10), 2, 3, 4);
+    Dungeon(sf::IntRect(128,512-128,10,10), 2, 2, 1);
 
     while(World::instance().isOpened()){
         World::instance().update();

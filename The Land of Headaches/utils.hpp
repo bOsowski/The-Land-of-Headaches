@@ -9,7 +9,7 @@
 #include<cstdlib>
 #include <ctime>
 
-static sf::Vector2i tileSize = sf::Vector2i(16,16);
+static sf::Vector2i tileSize = sf::Vector2i(32,32);
 
 
 static int getRandom(){
