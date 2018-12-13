@@ -8,8 +8,9 @@
 AbstractSoundComponent::AbstractSoundComponent() : BaseComponent("SoundComponent") {
 }
 
-void AbstractSoundComponent::addSound(std::string soundName, sf::SoundBuffer* buffer) {
+sf::Sound* AbstractSoundComponent::addSound(std::string soundName, sf::SoundBuffer* buffer) {
     sf::Sound* sound = new sf::Sound();
     sound->setBuffer(*buffer);
     sounds.insert(std::pair<std::string, sf::Sound*>(soundName, sound));
+    return sound;
 }

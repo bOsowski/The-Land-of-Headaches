@@ -16,8 +16,10 @@ class AbstractSoundComponent : public BaseComponent{
 public:
     AbstractSoundComponent();
     void render(sf::RenderWindow& window){}
-    void addSound(std::string soundName, sf::SoundBuffer* buffer);
-
+    sf::Sound* addSound(std::string soundName, sf::SoundBuffer* buffer);
+    sf::Sound* getSound(std::string name){
+        return sounds.at(name);
+    }
 protected:
     std::map<std::string, sf::Sound*> sounds;
 };

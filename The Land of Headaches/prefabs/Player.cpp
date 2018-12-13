@@ -3,6 +3,7 @@
 // Copyright (c) 2018 Bartosz Osowski. All rights reserved.
 //
 
+#include <SFML/Audio/Listener.hpp>
 #include "Player.hpp"
 #include "InfluenceComponent.hpp"
 #include "AbstractSoundComponent.hpp"
@@ -19,14 +20,13 @@ public:
     }
 
     void update(float deltaTime){
+        sf::Listener::setPosition(delegate->transform()->position().x,delegate->transform()->position().y, 0.5f);
         std::cout<<"Linear velocity = "<<delegate->transform()->body->GetLinearVelocity().x<<", "<<delegate->transform()->body->GetLinearVelocity().y<<std::endl;
         if(delegate->transform()->body->GetLinearVelocity() != b2Vec2(0,0)){
-            printf("Footstep sound is playing..\n");
             sounds.at("footsteps.wav")->setVolume(100.f);
         }
         else{
             sounds.at("footsteps.wav")->setVolume(0.f);
-            printf("Footstep sound is stopping..\n");
         }
     }
 };

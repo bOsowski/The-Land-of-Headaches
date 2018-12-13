@@ -4,6 +4,8 @@
 //
 
 #include "InputComponent.hpp"
+#include "AnimationComponent.hpp"
+#include "AbstractSoundComponent.hpp"
 
 InputComponent::InputComponent()
 :
@@ -34,14 +36,41 @@ void InputComponent::update(float deltaTime) {
     }
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-        b2BodyDef* bulletBodyDef = new b2BodyDef();
-        bulletBodyDef->type = b2BodyType::b2_dynamicBody;
-        bulletBodyDef->position = *new b2Vec2(transform.position());
-        GameObject* bullet = new GameObject(new TransformComponent(bulletBodyDef, 100000), 0);
-        TextureComponent* bulletTexture = new TextureComponent("coin_0.png");
-        bullet->addComponent(bulletTexture);
-        bullet->instantiate();
-        bullet->transform()->move(transform.direction.value(), deltaTime);
+//        b2BodyDef* bulletBodyDef = new b2BodyDef();
+//        bulletBodyDef->type = b2BodyType::b2_dynamicBody;
+//        bulletBodyDef->position = *new b2Vec2(transform.position());
+//        GameObject* bullet = new GameObject(new TransformComponent(bulletBodyDef, 100000), 0);
+//        TextureComponent* bulletTexture = new TextureComponent("coin_0.png");
+//        bullet->addComponent(bulletTexture);
+//        bullet->instantiate();
+//        bullet->transform()->move(transform.direction.value(), deltaTime);
+
+        class TorchSoundComponent : public AbstractSoundComponent{
+        public:
+            TorchSoundComponent(){
+                sf::Sound* fireSound = addSound("fire.wav", AssetManager::instance().sounds.at("fire.wav"));
+                fireSound->setLoop(true);
+                fireSound->setMinDistance(10.f);
+                fireSound->setAttenuation(100);
+                fireSound->play();
+                fireSound->setRelativeToListener(true);
+            }
+
+            void update(float deltaTime){
+
+            }
+        };
+
+        b2BodyDef* torchBodyDef = new b2BodyDef();
+        torchBodyDef->type = b2BodyType::b2_staticBody;
+        torchBodyDef->position = *new b2Vec2(transform.position());
+        GameObject* torch = new GameObject(new TransformComponent(torchBodyDef, 0), 0);
+        TextureComponent* animationComponent = new AnimationComponent("torch.png", 0.2, 7);
+        torch->addComponent(animationComponent);
+        TorchSoundComponent* torchSoundComponent = new TorchSoundComponent();
+        torch->addComponent(torchSoundComponent);
+        torchSoundComponent->getSound("fire.wav")->setPosition(torchBodyDef->position.x, torchBodyDef->position.y, 0.5);
+        torch->instantiate();
     }
 }
 
