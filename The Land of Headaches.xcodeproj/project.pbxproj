@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C13369D21C2450700A5D24A /* audio in Resources */ = {isa = PBXBuildFile; fileRef = 0C13369C21C2450600A5D24A /* audio */; };
 		0CE5CCD921BB3619007072A5 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5CCD821BB3619007072A5 /* ResourcePath.mm */; };
 		0CE5CCDC21BB3619007072A5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5CCDB21BB3619007072A5 /* main.cpp */; };
 		0CE5CCDF21BB3619007072A5 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5CCDE21BB3619007072A5 /* cute_image.jpg */; };
@@ -24,6 +25,7 @@
 		7D9396EE634E8EC8C42C004C /* BaseComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939A70BADD947D9804203E /* BaseComponent.cpp */; };
 		7D939740010CF2EDEDFD1CB8 /* Direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939439B212DF1A55EE22E2 /* Direction.cpp */; };
 		7D9398900C3BF4818FABD37B /* AnimatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */; };
+		7D9398F0AF471E8EA5A2E6B1 /* AbstractSoundComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939BE69039892F461F4BF9 /* AbstractSoundComponent.cpp */; };
 		7D9399D088EF144BD97FBD7F /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93905A7011A726D5EA5D5B /* State.cpp */; };
 		7D939A082E8EC775182AAC49 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93903E021AD76AD22385AC /* TransformComponent.cpp */; };
 		7D939C465DBF1A80F4824F4A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93931DE24ACDB8EF7ACE99 /* Player.cpp */; };
@@ -33,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C13369C21C2450600A5D24A /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = audio; sourceTree = "<group>"; };
 		0CE5CCD321BB3619007072A5 /* The Land of Headaches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Land of Headaches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE5CCD721BB3619007072A5 /* The Land of Headaches-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "The Land of Headaches-Info.plist"; sourceTree = "<group>"; };
 		0CE5CCD821BB3619007072A5 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -74,9 +77,11 @@
 		7D939AF1F225F93DEB0D1152 /* AssetManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AssetManager.hpp; sourceTree = "<group>"; };
 		7D939B4E89658A8761343B1A /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		7D939B5F2223A7D794A4686E /* InputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputComponent.cpp; sourceTree = "<group>"; };
+		7D939BE69039892F461F4BF9 /* AbstractSoundComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractSoundComponent.cpp; sourceTree = "<group>"; };
 		7D939C3E927CC729D03DC77A /* Dungeon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dungeon.hpp; sourceTree = "<group>"; };
 		7D939CBE270F791D4CCBF476 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		7D939CFACD48D61740ED2AF1 /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
+		7D939D0B32E595F7E05E63AD /* AbstractSoundComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AbstractSoundComponent.hpp; sourceTree = "<group>"; };
 		7D939D5F5642E5FF4148F26B /* AnimatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatorComponent.hpp; sourceTree = "<group>"; };
 		7D939E6BD6BA135FDA5D5F4D /* AnimatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatorComponent.cpp; sourceTree = "<group>"; };
 		7D939F5E9784553968DAA620 /* InfluenceComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InfluenceComponent.hpp; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 				0CE5CD3221BC5034007072A5 /* textures */,
 				0CE5CCDE21BB3619007072A5 /* cute_image.jpg */,
 				0CE5CCE021BB3619007072A5 /* nice_music.ogg */,
+				0C13369C21C2450600A5D24A /* audio */,
 				0CE5CCE221BB3619007072A5 /* sansation.ttf */,
 				0CE5CCE421BB3619007072A5 /* icon.png */,
 			);
@@ -193,6 +199,8 @@
 				7D9391B7ACE6FB9D2C1F1F71 /* InputComponent.hpp */,
 				7D939702740E47FB9EE95AC0 /* InfluenceComponent.cpp */,
 				7D939F5E9784553968DAA620 /* InfluenceComponent.hpp */,
+				7D939BE69039892F461F4BF9 /* AbstractSoundComponent.cpp */,
+				7D939D0B32E595F7E05E63AD /* AbstractSoundComponent.hpp */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				0CE5CCE521BB3619007072A5 /* icon.png in Resources */,
 				0CE5CD3321BC5034007072A5 /* textures in Resources */,
 				0CE5CCE321BB3619007072A5 /* sansation.ttf in Resources */,
+				0C13369D21C2450700A5D24A /* audio in Resources */,
 				0CE5CCE121BB3619007072A5 /* nice_music.ogg in Resources */,
 				0CE5CCDF21BB3619007072A5 /* cute_image.jpg in Resources */,
 			);
@@ -356,6 +365,7 @@
 				7D9390B27AFC6676524E15D4 /* InfluenceComponent.cpp in Sources */,
 				7D9391EBCB5B64002D5B4FF6 /* DungeonCell.cpp in Sources */,
 				7D93918017CF9537D407B84F /* SFMLDebugDraw.cpp in Sources */,
+				7D9398F0AF471E8EA5A2E6B1 /* AbstractSoundComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

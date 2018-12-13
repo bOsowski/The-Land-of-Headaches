@@ -12,6 +12,7 @@ BaseComponent("InputComponent"){
 
 void InputComponent::update(float deltaTime) {
     TransformComponent& transform = *delegate->transform();
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
         transform.direction = LEFT;
         transform.move(LEFT.value(), deltaTime);

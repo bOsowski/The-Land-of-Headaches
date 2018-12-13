@@ -5,8 +5,31 @@
 
 #include "Player.hpp"
 #include "InfluenceComponent.hpp"
+#include "AbstractSoundComponent.hpp"
 
 class b2BodyDef;
+
+class PlayerSoundComponent : public AbstractSoundComponent{
+public:
+    PlayerSoundComponent(){
+        addSound("footsteps.wav", AssetManager::instance().sounds.at("footsteps.wav"));
+        sounds.at("footsteps.wav")->setVolume(0.f);
+        sounds.at("footsteps.wav")->play();
+        sounds.at("footsteps.wav")->setLoop(true);
+    }
+
+    void update(float deltaTime){
+        std::cout<<"Linear velocity = "<<delegate->transform()->body->GetLinearVelocity().x<<", "<<delegate->transform()->body->GetLinearVelocity().y<<std::endl;
+        if(delegate->transform()->body->GetLinearVelocity() != b2Vec2(0,0)){
+            printf("Footstep sound is playing..\n");
+            sounds.at("footsteps.wav")->setVolume(100.f);
+        }
+        else{
+            sounds.at("footsteps.wav")->setVolume(0.f);
+            printf("Footstep sound is stopping..\n");
+        }
+    }
+};
 
 Player::Player() {
     b2BodyDef* bodyDef = new b2BodyDef();
@@ -21,6 +44,8 @@ Player::Player() {
     //todo: fix influence component
     //InfluenceComponent* influenceComponent = new InfluenceComponent(1);
     //gameObject->addComponent(influenceComponent);
+    PlayerSoundComponent* soundComponent = new PlayerSoundComponent();
+    gameObject->addComponent(soundComponent);
 
     b2PolygonShape* collisionShape = new b2PolygonShape();
     collisionShape->SetAsBox(tileSize.x/3, tileSize.y/4, b2Vec2(0, -5), 0);

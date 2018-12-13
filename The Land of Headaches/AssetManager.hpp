@@ -15,6 +15,7 @@
 #include "utils.hpp"
 #include <dirent.h>
 #include <iostream>
+#include <SFML/Audio/SoundBuffer.hpp>
 
 
 class AssetManager {
@@ -25,6 +26,7 @@ public:
     }
 
     std::map<std::string, sf::Texture> textures;
+    std::map<std::string, sf::SoundBuffer*> sounds;
 
 private:
     AssetManager();
