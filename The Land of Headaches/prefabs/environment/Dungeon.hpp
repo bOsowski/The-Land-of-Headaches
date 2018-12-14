@@ -8,6 +8,7 @@
 
 #include "DungeonRoom.hpp"
 #include "DungeonMaze.hpp"
+#include "DungeonCell.hpp"
 
 class Dungeon {
 public:
@@ -17,30 +18,9 @@ public:
     DungeonMaze* maze;
     DungeonCell* lastCell;
 
-    Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _maxRoomSize, unsigned int _roomCreationAttempts):
-    bounds(sf::IntRect(_bounds.left, _bounds.top, _bounds.width*tileSize.x,_bounds.height*tileSize.y)),
-    minRoomSize(_minRoomSize),
-    maxRoomSize(_maxRoomSize),
-    roomCreationAttempts(_roomCreationAttempts)
-    {
-        printf("creating rooms.\n");
-        createRooms();
-        printf("created rooms.\n");
-        printf("creating mazes.\n");
-        createMazes();
-        printf("created mazes.\n");
-        createWalls();
-    }
+    Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _maxRoomSize, unsigned int _roomCreationAttempts);
 
-    void resetNodes(){
-        for(auto cell: dungeonCells){
-            if (cell.second == nullptr) continue;
-            cell.second->F = 0;
-            cell.second->G = 0;
-            cell.second->H = 0;
-            cell.second->parentCell = nullptr;
-        }
-    }
+    void resetNodes();
 
 private:
     sf::IntRect bounds;
@@ -48,32 +28,11 @@ private:
     unsigned int maxRoomSize;
     unsigned int roomCreationAttempts;
 
-    void createRooms(){
-        for(unsigned int i = 0; i < roomCreationAttempts; i++){
+    void createRooms();
 
-            DungeonRoom* room = new DungeonRoom(minRoomSize, maxRoomSize, &bounds, &dungeonRooms);
-            if (room->create()) {
-                dungeonRooms.push_back(room);
-                for(auto cell: room->cells){
-                    dungeonCells.insert(std::pair<sf::Vector2f*, DungeonCell*>(cell.first, cell.second));
-                }
-            }
-        }
-    }
+    void createMazes();
 
-    void createMazes(){
-        maze = new DungeonMaze(&bounds, &dungeonRooms);
-        for(auto mazeCell: maze->cells){
-            dungeonCells.insert(std::pair<sf::Vector2f*, DungeonCell*>(mazeCell.first, mazeCell.second));
-            lastCell = mazeCell.second;
-        }
-    }
-
-    void createWalls(){
-        for(auto cell: dungeonCells){
-            cell.second->createWalls(dungeonCells);
-        }
-    }
+    void createWalls();
 };
 
 

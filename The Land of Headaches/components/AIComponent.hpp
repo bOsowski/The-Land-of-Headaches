@@ -22,9 +22,9 @@ public:
 
     void render(sf::RenderWindow& window){}
 
-    void SetLevel(Dungeon* level);
+    void SetLevel(Dungeon* _level);
 
-    void SetTargetPosition(sf::Vector2f targetPosition);
+    void SetTargetPosition(const b2Vec2& targetPosition);
 
 private:
     void UpdatePathFinding();
@@ -32,7 +32,7 @@ private:
     int GetDistance(DungeonCell* cellA, DungeonCell* cellB);
 
     Dungeon* level;
-    sf::Vector2f m_targetPosition;
+    const b2Vec2* m_targetPosition;
     std::vector<DungeonCell*> path;
 };
 

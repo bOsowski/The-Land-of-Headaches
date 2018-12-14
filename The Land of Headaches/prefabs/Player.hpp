@@ -10,7 +10,6 @@
 
 class Player{
 public:
-//    static GameObject* player;
     Player();
     GameObject* gameObject;
 

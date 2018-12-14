@@ -4,14 +4,15 @@
 //
 
 #include "AIComponent.hpp"
+#include "Player.hpp"
+#include <cmath>
 
 
-AIComponent::AIComponent() : BaseComponent("AIComponent"), level(nullptr) {
+AIComponent::AIComponent() : BaseComponent("AIComponent") {
 }
 
 void AIComponent::update(float deltaTime) {
-//    SetTargetPosition(sf::Vector2f((Player::player->transform()->position()).x, (Player::player->transform()->position()).y));
-    SetTargetPosition(sf::Vector2f());
+    //SetTargetPosition(sf::Vector2f((Player::player->transform()->position()).x, (Player::player->transform()->position()).y));
     level->resetNodes();
     UpdatePathFinding();
 
@@ -27,57 +28,67 @@ void AIComponent::update(float deltaTime) {
 void AIComponent::UpdatePathFinding() {
     DungeonCell* startTile;
     float shortestDistance = MAXFLOAT;
-    for(auto cell: level->dungeonCells){
+    for(auto& cell: level->dungeonCells){
         float currentDistance = sqrt(dot(*cell.first, sf::Vector2f(delegate->transform()->position().x, delegate->transform()->position().y)));
         if(currentDistance < shortestDistance){
             shortestDistance = currentDistance;
             startTile = cell.second;
         }
     }
+    std::cout<<"Start tile = "<<startTile->cell->transform()->position().x<<", "<<startTile->cell->transform()->position().y<<"\n";
 
+    printf("Shortest distance to itself = %f\n", shortestDistance);
     DungeonCell* endTile;
     shortestDistance = MAXFLOAT;
-    for(auto cell: level->dungeonCells){
-        float currentDistance = sqrt(dot(*cell.first, m_targetPosition));
+    for(auto& cell: level->dungeonCells){
+        float currentDistance = sqrt(dot(*cell.first, sf::Vector2f(m_targetPosition->x, m_targetPosition->y)));
         if(currentDistance < shortestDistance){
             shortestDistance = currentDistance;
             endTile = cell.second;
         }
     }
+    std::cout<<"End tile = "<<endTile->cell->transform()->position().x<<", "<<endTile->cell->transform()->position().y<<"\n";
 
-    std::vector<DungeonCell*> openSet;
-    std::set<DungeonCell*> closedSet;
+    printf("Shortest distance to target = %f\n", shortestDistance);
 
-    openSet.push_back(startTile);
+    if (startTile == endTile) printf("OH NO\n");
 
-    while (openSet.size() > 0) {
-        DungeonCell* currentNode = openSet[0];
+    std::vector<DungeonCell*> notVisited;
+    std::set<DungeonCell*> visited;
 
-        for (int i = 0; i < openSet.size(); ++i) {
-            if (openSet[i]->F < currentNode->F || openSet[i]->F == currentNode->F && openSet[i]->H < currentNode->H)
-                currentNode = openSet[i];
+    notVisited.push_back(startTile);
+
+    while (notVisited.size() > 0) {
+        DungeonCell* currentTile = notVisited[0];
+
+        for (int i = 0; i < notVisited.size(); ++i) {
+            if (notVisited[i]->F < currentTile->F || notVisited[i]->F == currentTile->F && notVisited[i]->H < currentTile->H)
+                currentTile = notVisited[i];
         }
 
-        std::vector<DungeonCell*>::iterator it = std::find(openSet.begin(), openSet.end(), currentNode);
-        long index = std::distance(openSet.begin(), it);
-        openSet.erase(openSet.begin() + index);
-        closedSet.insert(currentNode);
+        // Get index of currentTile to remove from notVisited
+        std::vector<DungeonCell*>::iterator it = std::find(notVisited.begin(), notVisited.end(), currentTile);
+        long index = std::distance(notVisited.begin(), it);
+        notVisited.erase(notVisited.begin() + index);
+        // Insert currentTile into visited
+        visited.insert(currentTile);
 
-        if (currentNode == endTile) {
-            RetracePath(startTile, endTile);
+        if (currentTile == endTile) {
+            RetracePath(startTile, endTile); //create path to endTile from startTile
             return;
         }
 
-        for (DungeonCell* neighbour : currentNode->getNeighbours(level->dungeonCells)) {
-            if (closedSet.find(neighbour) != closedSet.end()) continue;
+        for (DungeonCell* neighbour : currentTile->getNeighbours(level->dungeonCells)) {
+            if (visited.find(neighbour) != visited.end()) continue;
 
-            int newMovementCostToNeighbour = currentNode->G + GetDistance(currentNode, neighbour);
-            if (newMovementCostToNeighbour < neighbour->G || !(std::find(openSet.begin(), openSet.end(), neighbour) != openSet.end())) {
+            printf("Distance to neighbour : %d\n", GetDistance(currentTile, neighbour));
+            int newMovementCostToNeighbour = currentTile->G + GetDistance(currentTile, neighbour);
+            if (newMovementCostToNeighbour < neighbour->G || !(std::find(notVisited.begin(), notVisited.end(), neighbour) != notVisited.end())) {
                 neighbour->G = newMovementCostToNeighbour;
                 neighbour->H = GetDistance(neighbour, endTile);
-                neighbour->parentCell = currentNode;
+                neighbour->parentCell = currentTile;
 
-                if (!(std::find(openSet.begin(), openSet.end(), neighbour) != openSet.end())) openSet.push_back(neighbour);
+                if (!(std::find(notVisited.begin(), notVisited.end(), neighbour) != notVisited.end())) notVisited.push_back(neighbour);
             }
         }
     }
@@ -89,6 +100,7 @@ void AIComponent::RetracePath(DungeonCell* startTile, DungeonCell* targetTile) {
 
     while (currentTile != startTile) {
         path.push_back(currentTile);
+        std::cout << currentTile->cell->transform()->position().x << ", "<<currentTile->cell->transform()->position().y << std::endl;
         currentTile = currentTile->parentCell;
     }
 
@@ -96,18 +108,20 @@ void AIComponent::RetracePath(DungeonCell* startTile, DungeonCell* targetTile) {
 }
 
 int AIComponent::GetDistance(DungeonCell* tileA, DungeonCell* tileB) {
-    int distX = static_cast<int>(abs(tileA->cell->transform()->position().x - tileB->cell->transform()->position().x));
-    int distY = static_cast<int>(abs(tileA->cell->transform()->position().y - tileB->cell->transform()->position().y));
+    auto x = abs(tileA->cell->transform()->position().x - tileB->cell->transform()->position().x);
+    auto y = abs(tileA->cell->transform()->position().y - tileB->cell->transform()->position().y);
+    int distX = static_cast<int>(x);
+    int distY = static_cast<int>(y);
 
     // srt(2) * 10 = 14
     if (distX > distY) return 14 * distY + 10 * (distX - distY);
-    else 14 * distX + 10 * (distY - distX);
+    else return 14 * distX + 10 * (distY - distX);
 }
 
-void AIComponent::SetLevel(Dungeon* level) {
-    level = level;
+void AIComponent::SetLevel(Dungeon* _level) {
+    level = _level;
 }
 
-void AIComponent::SetTargetPosition(sf::Vector2f targetPosition) {
-    m_targetPosition = targetPosition;
+void AIComponent::SetTargetPosition(const b2Vec2& targetPosition) {
+    m_targetPosition = &targetPosition;
 }

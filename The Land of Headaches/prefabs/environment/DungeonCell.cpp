@@ -60,3 +60,32 @@ DungeonCell::DungeonCell(sf::Vector2f position)
     cell->instantiate();
     //printf("Created cell at (%f,%f)\n", cell->transform()->position().x, cell->transform()->position().y);
 }
+
+std::vector<DungeonCell*> DungeonCell::getNeighbours(std::map<sf::Vector2f*, DungeonCell*> otherCells) {
+    std::vector<DungeonCell*> neighbours;
+    for (int i = 0; i < Direction::length()-1; i++) {
+        sf::Vector2f neighbourPosition = sf::Vector2f(cell->transform()->position().x, cell->transform()->position().y) + sf::Vector2f(Direction(i).value().x * tileSize.x, Direction(i).value().y * tileSize.y);
+        for(auto& otherCell: otherCells){
+            if(otherCell.first->x == neighbourPosition.x && otherCell.first->y == neighbourPosition.y){
+                neighbours.push_back(otherCell.second);
+                break;
+            }
+        }
+    }
+    return neighbours;
+}
+
+void DungeonCell::createWalls(std::map<sf::Vector2f*, DungeonCell*>& dungeonCells){
+    for(int i = 0; i<Direction::length()-1; i++){
+        bool hasNeighbour = false;
+        for(auto& otherCell: dungeonCells){
+            if(otherCell.first->x == cell->transform()->position().x+Direction(i).value().x*tileSize.x && otherCell.first->y == cell->transform()->position().y+Direction(i).value().y*tileSize.y){
+                hasNeighbour = true;
+                break;
+            }
+        }
+        if(!hasNeighbour){
+            addWall(Direction(i));
+        }
+    }
+}

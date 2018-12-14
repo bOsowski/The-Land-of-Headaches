@@ -22,31 +22,9 @@ public:
     GameObject* cell;
     std::map<Direction, GameObject*> walls;
     DungeonCell(sf::Vector2f position);
-    void createWalls(std::map<sf::Vector2f*, DungeonCell*>& dungeonCells){
-        for(int i = 0; i<Direction::length()-1; i++){
-            bool hasNeighbour = false;
-            for(auto otherCell: dungeonCells){
-                if(otherCell.first->x == cell->transform()->position().x+Direction(i).value().x*tileSize.x && otherCell.first->y == cell->transform()->position().y+Direction(i).value().y*tileSize.y){
-                    hasNeighbour = true;
-                    break;
-                }
-            }
-            if(!hasNeighbour){
-                addWall(Direction(i));
-            }
-        }
-    }
+    void createWalls(std::map<sf::Vector2f*, DungeonCell*>& dungeonCells);
 
-    std::vector<DungeonCell*> getNeighbours(std::map<sf::Vector2f*, DungeonCell*> otherCells) {
-        std::vector<DungeonCell*> neighbours;
-        for (int i = 0; i < Direction::length()-1; i++) {
-            sf::Vector2f neighbourPosition = sf::Vector2f(cell->transform()->position().x, cell->transform()->position().y) + sf::Vector2f(Direction(i).value().x, Direction(i).value().y);
-            if (otherCells.count(&neighbourPosition)) {
-                neighbours.push_back(otherCells.at(&neighbourPosition));
-            }
-        }
-        return neighbours;
-    }
+    std::vector<DungeonCell*> getNeighbours(std::map<sf::Vector2f*, DungeonCell*> otherCells);
 
 
 private:

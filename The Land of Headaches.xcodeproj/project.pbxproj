@@ -33,7 +33,10 @@
 		7D939E3C4380614E3CABAEED /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93998E8C386B69F4013B2B /* AssetManager.cpp */; };
 		7D939F6BBDEFFC78F14D349C /* InputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939B5F2223A7D794A4686E /* InputComponent.cpp */; };
 		E1D0C674259918FEC37B8B78 /* AIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D0CE27EB31EA00DF5F686B /* AIComponent.cpp */; };
+		E1D0C9D8B11ED00D82CA9FA7 /* DungeonMaze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D0C517FA8376AFEFC3BCFA /* DungeonMaze.cpp */; };
 		E1D0CDEE64B1303ACB0F0373 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D0C98EEC1B9FF14645432B /* utils.cpp */; };
+		E1D0CF8E927B26B14171EFDE /* DungeonRoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D0C2BCA2CF3635F931908D /* DungeonRoom.cpp */; };
+		E1D0CF9059F4602684669FD6 /* Dungeon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D0CDC536E49E3556341EF8 /* Dungeon.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,8 +92,11 @@
 		7D939F5E9784553968DAA620 /* InfluenceComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InfluenceComponent.hpp; sourceTree = "<group>"; };
 		7D939FCC7D334E3DD79BBA4A /* DungeonCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DungeonCell.cpp; sourceTree = "<group>"; };
 		7D939FEB170EEA7D6B6B6C5C /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		E1D0C2BCA2CF3635F931908D /* DungeonRoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DungeonRoom.cpp; sourceTree = "<group>"; };
+		E1D0C517FA8376AFEFC3BCFA /* DungeonMaze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DungeonMaze.cpp; sourceTree = "<group>"; };
 		E1D0C98EEC1B9FF14645432B /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
 		E1D0CC4243EA6BA850E4BD64 /* AIComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AIComponent.hpp; sourceTree = "<group>"; };
+		E1D0CDC536E49E3556341EF8 /* Dungeon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dungeon.cpp; sourceTree = "<group>"; };
 		E1D0CE27EB31EA00DF5F686B /* AIComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIComponent.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,9 @@
 				7D939C3E927CC729D03DC77A /* Dungeon.hpp */,
 				7D9396482A7A82FAE317F97B /* DungeonRoom.hpp */,
 				7D93907E7D701C4F8D2650EB /* DungeonMaze.hpp */,
+				E1D0CDC536E49E3556341EF8 /* Dungeon.cpp */,
+				E1D0C517FA8376AFEFC3BCFA /* DungeonMaze.cpp */,
+				E1D0C2BCA2CF3635F931908D /* DungeonRoom.cpp */,
 			);
 			path = environment;
 			sourceTree = "<group>";
@@ -376,6 +385,9 @@
 				7D9398F0AF471E8EA5A2E6B1 /* AbstractSoundComponent.cpp in Sources */,
 				E1D0C674259918FEC37B8B78 /* AIComponent.cpp in Sources */,
 				E1D0CDEE64B1303ACB0F0373 /* utils.cpp in Sources */,
+				E1D0CF9059F4602684669FD6 /* Dungeon.cpp in Sources */,
+				E1D0C9D8B11ED00D82CA9FA7 /* DungeonMaze.cpp in Sources */,
+				E1D0CF8E927B26B14171EFDE /* DungeonRoom.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,9 @@
 class Dungeon;
 
 int main(int, char const**) {
+    Player player = Player();
+
+
     sf::Music* music = new sf::Music();
     if (!music->openFromFile(resourcePath()+"audio/dungeon.ogg"))
         return -1; // error
@@ -32,21 +35,30 @@ int main(int, char const**) {
 
     World& world = World::instance();
 
-    srand((time(NULL)));
+    //srand((time(NULL)));
     // Program entry point.
-    Player player = Player();
-    Dungeon(sf::IntRect(128,512-128,10,10), 2, 4, 10);
+    Dungeon* dungeon = new Dungeon(sf::IntRect(128,512-128,10,10), 2, 4, 2);
+    std::cout<<"Dungeon cell size = "<<dungeon->dungeonCells.size()<<std::endl;
 
-//    b2BodyDef* bulletBodyDef = new b2BodyDef();
-//    bulletBodyDef->type = b2BodyType::b2_dynamicBody;
-//    bulletBodyDef->position = dungeon->lastCell->cell->transform()->position();
-//    GameObject* bullet = new GameObject(new TransformComponent(bulletBodyDef, 1000), 0);
-//    TextureComponent* bulletTexture = new TextureComponent("coin_0.png");
-//    bullet->addComponent(bulletTexture);
-//    AIComponent* aiComponent = new AIComponent();
-//    aiComponent->SetLevel(dungeon);
-//    bullet->addComponent(aiComponent);
-//    bullet->instantiate();
+    b2BodyDef* seekingMissileBodyDef = new b2BodyDef();
+    seekingMissileBodyDef->type = b2BodyType::b2_dynamicBody;
+    seekingMissileBodyDef->position = b2Vec2(150, 380);
+    GameObject* seekingMissile = new GameObject(new TransformComponent(seekingMissileBodyDef, 10), 0);
+    TextureComponent* seekingMissileTexture = new TextureComponent("coin_0.png");
+    seekingMissile->addComponent(seekingMissileTexture);
+    AIComponent* aiComponent = new AIComponent();
+    aiComponent->SetTargetPosition(player.gameObject->transform()->position());
+    aiComponent->SetLevel(dungeon);
+
+//    b2PolygonShape* collisionShape = new b2PolygonShape();
+//    collisionShape->SetAsBox(2, 2, b2Vec2(0, 0), 0);
+//    b2FixtureDef* fixtureDef = new b2FixtureDef();
+//    fixtureDef->shape = collisionShape;
+//    fixtureDef->friction = 0;
+//    seekingMissile->transform()->body->CreateFixture(fixtureDef);
+
+    seekingMissile->addComponent(aiComponent);
+    seekingMissile->instantiate();
 
     while(world.isOpened()){
         world.update();

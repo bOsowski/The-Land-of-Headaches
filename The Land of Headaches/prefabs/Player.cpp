@@ -25,7 +25,7 @@ public:
 
     void update(float deltaTime){
         sf::Listener::setPosition(delegate->transform()->position().x,delegate->transform()->position().y, 0.5f);
-        std::cout<<"Linear velocity = "<<delegate->transform()->body->GetLinearVelocity().x<<", "<<delegate->transform()->body->GetLinearVelocity().y<<std::endl;
+        //std::cout<<"Linear velocity = "<<delegate->transform()->body->GetLinearVelocity().x<<", "<<delegate->transform()->body->GetLinearVelocity().y<<std::endl;
         if(delegate->transform()->body->GetLinearVelocity() != b2Vec2(0,0)){
             sounds.at("footsteps.wav")->setVolume(100.f);
         }
@@ -58,5 +58,5 @@ Player::Player() {
     fixtureDef->friction = 0;
     gameObject->transform()->body->CreateFixture(fixtureDef);
     gameObject->instantiate();
-    //Player::player = gameObject;
 }
+
