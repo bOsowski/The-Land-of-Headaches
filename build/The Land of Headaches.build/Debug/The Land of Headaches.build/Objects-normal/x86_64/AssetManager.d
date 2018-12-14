@@ -73,4 +73,7 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/Graphics/Sprite.hpp \
   /Library/Frameworks/SFML.framework/Headers/Graphics/Text.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/ResourcePath.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundBuffer.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/AlResource.hpp

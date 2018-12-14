@@ -119,4 +119,7 @@ dependencies: \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/World.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/TextureComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/AssetManager.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundBuffer.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/AlResource.hpp

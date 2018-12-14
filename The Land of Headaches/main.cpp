@@ -24,6 +24,11 @@
 #include "SFMLDebugDraw.hpp"
 
 int main(int, char const**) {
+    sf::Music* music = new sf::Music();
+    if (!music->openFromFile(resourcePath()+"audio/dungeon.ogg"))
+        return -1; // error
+    music->play();
+
     World& world = World::instance();
     SFMLDebugDraw debugDraw = SFMLDebugDraw(world.window());
     world.physicsWorld.SetDebugDraw(&debugDraw);

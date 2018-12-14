@@ -138,4 +138,9 @@ dependencies: \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/AnimatorComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/AnimationComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/enums/State.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/InputComponent.hpp
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/InputComponent.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/prefabs/environment/Dungeon.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/prefabs/environment/DungeonCell.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/prefabs/environment/DungeonRoom.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/prefabs/environment/DungeonMaze.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/b2debug/SFMLDebugDraw.hpp

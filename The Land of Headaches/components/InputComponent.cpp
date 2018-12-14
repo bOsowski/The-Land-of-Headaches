@@ -50,8 +50,8 @@ void InputComponent::update(float deltaTime) {
             TorchSoundComponent(){
                 sf::Sound* fireSound = addSound("fire.wav", AssetManager::instance().sounds.at("fire.wav"));
                 fireSound->setLoop(true);
-                fireSound->setMinDistance(10.f);
-                fireSound->setAttenuation(100);
+                fireSound->setMinDistance(100.f);
+                fireSound->setAttenuation(1);
                 fireSound->play();
                 fireSound->setRelativeToListener(true);
             }

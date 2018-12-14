@@ -1,5 +1,10 @@
 dependencies: \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/prefabs/Player.cpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Listener.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Config.hpp \
+  /Library/Frameworks/SFML.framework/Headers/System/Vector3.hpp \
+  /Library/Frameworks/SFML.framework/Headers/System/Vector3.inl \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/prefabs/Player.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/AnimatorComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/AnimationComponent.hpp \
@@ -7,7 +12,6 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/Graphics.hpp \
   /Library/Frameworks/SFML.framework/Headers/Window.hpp \
   /Library/Frameworks/SFML.framework/Headers/System.hpp \
-  /Library/Frameworks/SFML.framework/Headers/Config.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Clock.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Export.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Time.hpp \
@@ -30,8 +34,6 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/System/ThreadLocalPtr.inl \
   /Library/Frameworks/SFML.framework/Headers/System/Vector2.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Vector2.inl \
-  /Library/Frameworks/SFML.framework/Headers/System/Vector3.hpp \
-  /Library/Frameworks/SFML.framework/Headers/System/Vector3.inl \
   /Library/Frameworks/SFML.framework/Headers/Window/Context.hpp \
   /Library/Frameworks/SFML.framework/Headers/Window/Export.hpp \
   /Library/Frameworks/SFML.framework/Headers/Window/GlResource.hpp \
@@ -120,8 +122,13 @@ dependencies: \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/AssetManager.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/ResourcePath.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundBuffer.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/AlResource.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/enums/State.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/InputComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/InfluenceComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/influence_map/IMap.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/influence_map/TileMap.hpp
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/influence_map/TileMap.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/AbstractSoundComponent.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Sound.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundSource.hpp

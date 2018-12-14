@@ -117,4 +117,11 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/Graphics/Text.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/AssetManager.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/ResourcePath.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundBuffer.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/AlResource.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/AnimationComponent.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/AbstractSoundComponent.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Sound.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundSource.hpp

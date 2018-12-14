@@ -116,4 +116,8 @@ dependencies: \
   /usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/AssetManager.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/ResourcePath.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundBuffer.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/AlResource.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/b2debug/SFMLDebugDraw.hpp
