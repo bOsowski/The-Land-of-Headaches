@@ -12,6 +12,8 @@
 #include "GameObject.hpp"
 #include "AssetManager.hpp"
 
+class BaseComponent;
+
 class TextureComponent : public BaseComponent, public sf::Drawable{
 public:
     TextureComponent(std::string textureName);

@@ -9,14 +9,7 @@
 #ifndef TileMap_hpp
 #define TileMap_hpp
 
-#include <string>
-#include <iostream>
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Drawable.hpp>
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/Graphics/RectangleShape.hpp>
-#include "ResourcePath.hpp"
 
 class TileMap : public sf::Drawable, public sf::Transformable {
 public:

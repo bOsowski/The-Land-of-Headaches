@@ -4,6 +4,9 @@
 //
 
 #include "GameObject.hpp"
+#include "World.hpp"
+#include "Box2D.h"
+#include "TransformComponent.hpp"
 
 GameObject::GameObject(TransformComponent* transformComponent, int _layer):
 layer(_layer),

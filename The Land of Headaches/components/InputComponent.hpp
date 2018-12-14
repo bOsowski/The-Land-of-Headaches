@@ -9,6 +9,7 @@
 
 #include "GameObject.hpp"
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 class InputComponent : public BaseComponent{
 public:

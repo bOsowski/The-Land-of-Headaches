@@ -4,7 +4,7 @@
 //
 
 #include "AnimatorComponent.hpp"
-
+#include "TransformComponent.hpp"
 
 AnimatorComponent::AnimatorComponent(std::string stateAnimationName, float _frameChangeTime, int frameCount)
         : AnimationComponent(stateAnimationName+"_"+IDLE.name()+"_"+DOWN.name()+".png", _frameChangeTime, frameCount) {

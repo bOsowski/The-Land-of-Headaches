@@ -31,4 +31,5 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/System/String.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Utf.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Utf.inl \
-  /Library/Frameworks/SFML.framework/Headers/System/String.inl
+  /Library/Frameworks/SFML.framework/Headers/System/String.inl \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/game_objects/GameObject.hpp

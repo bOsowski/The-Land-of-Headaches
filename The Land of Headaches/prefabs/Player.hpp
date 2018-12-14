@@ -6,12 +6,11 @@
 #ifndef THE_LAND_OF_HEADACHES_PLAYER_HPP
 #define THE_LAND_OF_HEADACHES_PLAYER_HPP
 
-
-#include "AnimatorComponent.hpp"
-#include "InputComponent.hpp"
+#include "GameObject.hpp"
 
 class Player{
 public:
+//    static GameObject* player;
     Player();
     GameObject* gameObject;
 

@@ -4,6 +4,7 @@
 //
 
 #include "TextureComponent.hpp"
+#include "TransformComponent.hpp"
 
 TextureComponent::TextureComponent(std::string textureName) :
         BaseComponent("TextureComponent"),

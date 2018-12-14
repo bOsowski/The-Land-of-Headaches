@@ -6,11 +6,9 @@
 #ifndef THE_LAND_OF_HEADACHES_DUNGEONMAZE_HPP
 #define THE_LAND_OF_HEADACHES_DUNGEONMAZE_HPP
 
-
+#include <SFML/Audio.hpp>
 #include <stack>
-#include "DungeonCell.hpp"
-#include "DungeonRoom.hpp"
-#include "Dungeon.hpp"
+#include "World.hpp"
 
 class DungeonMaze {
 public:

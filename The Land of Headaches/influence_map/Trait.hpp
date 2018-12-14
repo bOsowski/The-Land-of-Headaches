@@ -6,14 +6,6 @@
 #ifndef THE_LAND_OF_HEADACHES_TRAIT_HPP
 #define THE_LAND_OF_HEADACHES_TRAIT_HPP
 
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
-#include <iomanip>
-#include "IMap.hpp"
-
 class Blackboard;
 
 using namespace std;

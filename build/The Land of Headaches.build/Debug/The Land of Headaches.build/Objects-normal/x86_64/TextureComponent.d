@@ -73,8 +73,14 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/Graphics/Sprite.hpp \
   /Library/Frameworks/SFML.framework/Headers/Graphics/Text.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/game_objects/GameObject.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/TransformComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/BaseComponent.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/AssetManager.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/ResourcePath.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundBuffer.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Audio/AlResource.hpp \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/components/TransformComponent.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/enums/Direction.hpp \
   /usr/local/include/Box2D/Box2D.h \
   /usr/local/include/Box2D/Common/b2Settings.h \
@@ -112,11 +118,4 @@ dependencies: \
   /usr/local/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
   /usr/local/include/Box2D/Dynamics/Joints/b2RopeJoint.h \
   /usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h \
-  /usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/World.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/AssetManager.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/ResourcePath.hpp \
-  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/utils.hpp \
-  /Library/Frameworks/SFML.framework/Headers/Audio/SoundBuffer.hpp \
-  /Library/Frameworks/SFML.framework/Headers/Audio/Export.hpp \
-  /Library/Frameworks/SFML.framework/Headers/Audio/AlResource.hpp
+  /usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h

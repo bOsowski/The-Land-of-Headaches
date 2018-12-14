@@ -6,8 +6,8 @@
 #ifndef THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP
 #define THE_LAND_OF_HEADACHES_BASECOMPONENT_HPP
 
-#include <string>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "GameObject.hpp"
 
 class GameObject;
 
@@ -26,7 +26,6 @@ public:
 
 private:
     std::string _name;
-
 };
 
 

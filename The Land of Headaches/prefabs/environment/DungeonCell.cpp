@@ -4,6 +4,7 @@
 //
 
 #include "DungeonCell.hpp"
+#include "TextureComponent.hpp"
 
 void DungeonCell::addWall(Direction direction) {
     b2BodyDef* wallBody = new b2BodyDef();

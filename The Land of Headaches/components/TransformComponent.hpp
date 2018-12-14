@@ -29,9 +29,10 @@ public:
 
     Direction direction;
 
+    float movementSpeed;
+
 private:
     b2BodyDef* _bodyDef;
-    float movementSpeed;
 };
 
 

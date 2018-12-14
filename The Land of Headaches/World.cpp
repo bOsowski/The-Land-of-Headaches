@@ -3,8 +3,9 @@
 // Copyright (c) 2018 Bartosz Osowski. All rights reserved.
 //
 
+#include <SFML/Window/Event.hpp>
 #include "World.hpp"
-#include "SFMLDebugDraw.hpp"
+#include "TransformComponent.hpp"
 
 World::World()
 :

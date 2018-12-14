@@ -3,8 +3,12 @@
 // Copyright (c) 2018 Bartosz Osowski. All rights reserved.
 //
 
+#include <SFML/Audio.hpp>
+#include <SFML/Window/Keyboard.hpp>
 #include "InfluenceComponent.hpp"
-
+#include "ResourcePath.hpp"
+#include "IMap.hpp"
+#include "TransformComponent.hpp"
 
 InfluenceComponent::InfluenceComponent(float _influence)
 :

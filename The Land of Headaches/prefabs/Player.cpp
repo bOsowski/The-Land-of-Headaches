@@ -5,8 +5,12 @@
 
 #include <SFML/Audio/Listener.hpp>
 #include "Player.hpp"
-#include "InfluenceComponent.hpp"
 #include "AbstractSoundComponent.hpp"
+#include "AssetManager.hpp"
+#include "TransformComponent.hpp"
+#include "AnimatorComponent.hpp"
+#include "InputComponent.hpp"
+#include "World.hpp"
 
 class b2BodyDef;
 
@@ -54,4 +58,5 @@ Player::Player() {
     fixtureDef->friction = 0;
     gameObject->transform()->body->CreateFixture(fixtureDef);
     gameObject->instantiate();
+    //Player::player = gameObject;
 }

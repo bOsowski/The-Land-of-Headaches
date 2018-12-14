@@ -3,9 +3,13 @@
 // Copyright (c) 2018 Bartosz Osowski. All rights reserved.
 //
 
+#include <SFML/Window/Keyboard.hpp>
 #include "InputComponent.hpp"
-#include "AnimationComponent.hpp"
+#include "TransformComponent.hpp"
 #include "AbstractSoundComponent.hpp"
+#include "TextureComponent.hpp"
+#include "GameObject.hpp"
+#include "AnimationComponent.hpp"
 
 InputComponent::InputComponent()
 :

@@ -9,7 +9,9 @@
 
 #include "AnimationComponent.hpp"
 #include "State.hpp"
+#include "Direction.hpp"
 #include <map>
+
 
 class AnimatorComponent : public AnimationComponent {
 public:

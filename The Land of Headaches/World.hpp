@@ -6,9 +6,11 @@
 #ifndef THE_LAND_OF_HEADACHES_WORLD_HPP
 #define THE_LAND_OF_HEADACHES_WORLD_HPP
 
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
 #include <iostream>     //todo: remove this later.
-#include "TextureComponent.hpp"
+#include <Box2D/Dynamics/b2World.h>
+#include "GameObject.hpp"
 
 class World {
 

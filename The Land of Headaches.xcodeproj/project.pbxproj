@@ -32,6 +32,8 @@
 		7D939D6E06C4DCF200C7805E /* TextureComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93991D2A98F163212ED26B /* TextureComponent.cpp */; };
 		7D939E3C4380614E3CABAEED /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93998E8C386B69F4013B2B /* AssetManager.cpp */; };
 		7D939F6BBDEFFC78F14D349C /* InputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939B5F2223A7D794A4686E /* InputComponent.cpp */; };
+		E1D0C674259918FEC37B8B78 /* AIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D0CE27EB31EA00DF5F686B /* AIComponent.cpp */; };
+		E1D0CDEE64B1303ACB0F0373 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D0C98EEC1B9FF14645432B /* utils.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,9 @@
 		7D939F5E9784553968DAA620 /* InfluenceComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InfluenceComponent.hpp; sourceTree = "<group>"; };
 		7D939FCC7D334E3DD79BBA4A /* DungeonCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DungeonCell.cpp; sourceTree = "<group>"; };
 		7D939FEB170EEA7D6B6B6C5C /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		E1D0C98EEC1B9FF14645432B /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
+		E1D0CC4243EA6BA850E4BD64 /* AIComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AIComponent.hpp; sourceTree = "<group>"; };
+		E1D0CE27EB31EA00DF5F686B /* AIComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIComponent.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +154,7 @@
 				7D939D4425430360FFDA726A /* prefabs */,
 				7D9397FBA93B3347E5606828 /* influence_map */,
 				7D939F1A69E83457BBBE3899 /* b2debug */,
+				E1D0C98EEC1B9FF14645432B /* utils.cpp */,
 			);
 			path = "The Land of Headaches";
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 				7D939F5E9784553968DAA620 /* InfluenceComponent.hpp */,
 				7D939BE69039892F461F4BF9 /* AbstractSoundComponent.cpp */,
 				7D939D0B32E595F7E05E63AD /* AbstractSoundComponent.hpp */,
+				E1D0CE27EB31EA00DF5F686B /* AIComponent.cpp */,
+				E1D0CC4243EA6BA850E4BD64 /* AIComponent.hpp */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -366,6 +374,8 @@
 				7D9391EBCB5B64002D5B4FF6 /* DungeonCell.cpp in Sources */,
 				7D93918017CF9537D407B84F /* SFMLDebugDraw.cpp in Sources */,
 				7D9398F0AF471E8EA5A2E6B1 /* AbstractSoundComponent.cpp in Sources */,
+				E1D0C674259918FEC37B8B78 /* AIComponent.cpp in Sources */,
+				E1D0CDEE64B1303ACB0F0373 /* utils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

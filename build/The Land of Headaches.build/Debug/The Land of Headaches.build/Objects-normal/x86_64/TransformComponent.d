@@ -33,6 +33,7 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/System/Utf.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Utf.inl \
   /Library/Frameworks/SFML.framework/Headers/System/String.inl \
+  /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/game_objects/GameObject.hpp \
   /Users/bOsowski/Documents/The-Land-of-Headaches/The\ Land\ of\ Headaches/enums/Direction.hpp \
   /usr/local/include/Box2D/Box2D.h \
   /usr/local/include/Box2D/Common/b2Settings.h \

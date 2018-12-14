@@ -14,14 +14,15 @@
 // function `resourcePath()` from ResourcePath.hpp
 //
 
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
+#include <Box2D/Dynamics/b2Body.h>
 #include "ResourcePath.hpp"
 #include "World.hpp"
-#include "AssetManager.hpp"
 #include "Player.hpp"
+#include "TextureComponent.hpp"
+#include "AIComponent.hpp"
 #include "Dungeon.hpp"
-#include "SFMLDebugDraw.hpp"
+
+class Dungeon;
 
 int main(int, char const**) {
     sf::Music* music = new sf::Music();
@@ -30,13 +31,22 @@ int main(int, char const**) {
     music->play();
 
     World& world = World::instance();
-    SFMLDebugDraw debugDraw = SFMLDebugDraw(world.window());
-    world.physicsWorld.SetDebugDraw(&debugDraw);
 
     srand((time(NULL)));
     // Program entry point.
     Player player = Player();
     Dungeon(sf::IntRect(128,512-128,10,10), 2, 4, 10);
+
+//    b2BodyDef* bulletBodyDef = new b2BodyDef();
+//    bulletBodyDef->type = b2BodyType::b2_dynamicBody;
+//    bulletBodyDef->position = dungeon->lastCell->cell->transform()->position();
+//    GameObject* bullet = new GameObject(new TransformComponent(bulletBodyDef, 1000), 0);
+//    TextureComponent* bulletTexture = new TextureComponent("coin_0.png");
+//    bullet->addComponent(bulletTexture);
+//    AIComponent* aiComponent = new AIComponent();
+//    aiComponent->SetLevel(dungeon);
+//    bullet->addComponent(aiComponent);
+//    bullet->instantiate();
 
     while(world.isOpened()){
         world.update();

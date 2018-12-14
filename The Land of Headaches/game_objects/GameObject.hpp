@@ -6,10 +6,8 @@
 #ifndef THE_LAND_OF_HEADACHES_GAMEOBJECT_HPP
 #define THE_LAND_OF_HEADACHES_GAMEOBJECT_HPP
 
-#include <vector>
 #include <map>
-#include "TransformComponent.hpp"
-#include "World.hpp"
+#include "BaseComponent.hpp"
 
 class TransformComponent;
 class BaseComponent;

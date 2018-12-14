@@ -6,9 +6,7 @@
 #ifndef THE_LAND_OF_HEADACHES_DUNGEONROOM_HPP
 #define THE_LAND_OF_HEADACHES_DUNGEONROOM_HPP
 
-
-#include <Box2D/Common/b2Math.h>
-#include "DungeonCell.hpp"
+#include <iostream>
 
 class DungeonRoom {
 public:

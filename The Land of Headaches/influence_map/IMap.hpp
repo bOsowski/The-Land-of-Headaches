@@ -9,16 +9,8 @@
 #ifndef THE_LAND_OF_HEADACHES_IMAP_HPP
 #define THE_LAND_OF_HEADACHES_IMAP_HPP
 
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
-#include <iomanip>
 #include <cmath>
 
-//using namespace GameMath;
-//using namespace std;
 enum class PropCurve {
     Linear,
 };
