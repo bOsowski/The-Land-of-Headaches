@@ -42,20 +42,13 @@ int main(int, char const**) {
 
     b2BodyDef* seekingMissileBodyDef = new b2BodyDef();
     seekingMissileBodyDef->type = b2BodyType::b2_dynamicBody;
-    seekingMissileBodyDef->position = b2Vec2(144, 396);
-    GameObject* seekingMissile = new GameObject(new TransformComponent(seekingMissileBodyDef, 10), 0);
+    seekingMissileBodyDef->position = b2Vec2(200, 396);
+    GameObject* seekingMissile = new GameObject(new TransformComponent(seekingMissileBodyDef, 1000), 0);
     TextureComponent* seekingMissileTexture = new TextureComponent("coin_0.png");
     seekingMissile->addComponent(seekingMissileTexture);
     AIComponent* aiComponent = new AIComponent();
     aiComponent->SetTargetPosition(player.gameObject->transform()->position());
     aiComponent->SetLevel(dungeon);
-
-//    b2PolygonShape* collisionShape = new b2PolygonShape();
-//    collisionShape->SetAsBox(1, 1, b2Vec2(0, 0), 0);
-//    b2FixtureDef* fixtureDef = new b2FixtureDef();
-//    fixtureDef->shape = collisionShape;
-//    fixtureDef->friction = 0;
-//    seekingMissile->transform()->body->CreateFixture(fixtureDef);
 
     seekingMissile->addComponent(aiComponent);
     seekingMissile->instantiate();

@@ -30,6 +30,7 @@ private:
     void UpdatePathFinding();
     void RetracePath(DungeonCell* startCell, DungeonCell* targetCell);
     int GetDistance(DungeonCell* cellA, DungeonCell* cellB);
+    int GetDistance(sf::Vector2f pt1, sf::Vector2f pt2);
 
     Dungeon* level;
     const b2Vec2* m_targetPosition;

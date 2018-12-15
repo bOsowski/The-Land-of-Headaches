@@ -16,12 +16,23 @@ void AIComponent::update(float deltaTime) {
     level->resetNodes();
     UpdatePathFinding();
 
-    if (path.size() == 0) return;
-
     DungeonCell* target = path[0];
-    sf::Vector2f position = sf::Vector2f(target->cell->transform()->position().x, target->cell->transform()->position().y);
-    sf::Vector2f direction = position - sf::Vector2f(delegate->transform()->position().x, delegate->transform()->position().y);
+    sf::Vector2f position = sf::Vector2f(target->cell->transform()->position().x, target->cell->transform()->position().y+tileSize.y/2);
+    sf::Vector2f direction = position - sf::Vector2f(delegate->transform()->position().x-tileSize.x/2, delegate->transform()->position().y+tileSize.y/2);
+
+    std::cout<<"direction to set before = "<<direction.x<<", " << direction.y<<"\n";
+//
+//    //prevent cutting corners
+//    if(abs(direction.x) > abs(direction.y)){
+//        direction.y = 0;
+//    }
+//    else{
+//        direction.x = 0;
+//    }
+    std::cout<<"direction to set after = "<<direction.x<<", " << direction.y<<"\n";
+
     sf::Vector2f normalized = normalize(direction) * delegate->transform()->movementSpeed;
+    std::cout<<"Velocity to set = "<<normalized.x<<", " << normalized.y<<"\n";
     delegate->transform()->body->SetLinearVelocity((b2Vec2(normalized.x,normalized.y)));
 }
 
@@ -32,34 +43,24 @@ void AIComponent::UpdatePathFinding() {
         //float currentDistance = dot(*cell.first, sf::Vector2f(delegate->transform()->position().x, delegate->transform()->position().y));
         sf::Vector2f pt1 = *cell.first;
         sf::Vector2f pt2 = sf::Vector2f(delegate->transform()->position().x, delegate->transform()->position().y);
-        float currentDistance = sqrt(static_cast<float>(pow((pt2.x - pt1.x), 2) + pow((pt2.y - pt1.y), 2)));
+        float currentDistance = sqrt(static_cast<float>(pow((pt2.x - (pt1.x)), 2) + pow((pt2.y - pt1.y), 2)));
         if(currentDistance < shortestDistance){
             shortestDistance = currentDistance;
             startTile = cell.second;
         }
     }
-    std::cout<<"Shortest distance = "<<shortestDistance<<"\n";
-    std::cout<<"First cell coords = "<<startTile->cell->transform()->position().x << ", "<<startTile->cell->transform()->position().y << " | Second cell coords = "<< delegate->transform()->position().x << ", " << delegate->transform()->position().y << "\n";
 
-    //std::cout<<"Start tile = "<<startTile->cell->transform()->position().x<<", "<<startTile->cell->transform()->position().y<<"\n";
-
-    printf("Shortest distance to itself = %f\n", shortestDistance);
     DungeonCell* endTile;
     shortestDistance = MAXFLOAT;
     for(auto& cell: level->dungeonCells){
         sf::Vector2f pt1 = *cell.first;
         sf::Vector2f pt2 = sf::Vector2f(m_targetPosition->x, m_targetPosition->y);
-        float currentDistance = sqrt(static_cast<float>(pow((pt2.x - pt1.x), 2) + pow((pt2.y - pt1.y), 2)));
+        float currentDistance = sqrt(static_cast<float>(pow((pt2.x - (pt1.x)), 2) + pow((pt2.y - pt1.y), 2)));
         if(currentDistance < shortestDistance){
             shortestDistance = currentDistance;
             endTile = cell.second;
         }
     }
-    //std::cout<<"End tile = "<<endTile->cell->transform()->position().x<<", "<<endTile->cell->transform()->position().y<<"\n";
-
-    //printf("Shortest distance to target = %f\n", shortestDistance);
-
-    //if (startTile == endTile) printf("OH NO\n");
 
     std::vector<DungeonCell*> notVisited;
     std::set<DungeonCell*> visited;
@@ -89,7 +90,6 @@ void AIComponent::UpdatePathFinding() {
         for (DungeonCell* neighbour : currentTile->getNeighbours(level->dungeonCells)) {
             if (visited.find(neighbour) != visited.end()) continue;
 
-            //printf("Distance to neighbour : %d\n", GetDistance(currentTile, neighbour));
             int newMovementCostToNeighbour = currentTile->G + GetDistance(currentTile, neighbour);
             if (newMovementCostToNeighbour < neighbour->G || !(std::find(notVisited.begin(), notVisited.end(), neighbour) != notVisited.end())) {
                 neighbour->G = newMovementCostToNeighbour;
@@ -108,7 +108,6 @@ void AIComponent::RetracePath(DungeonCell* startTile, DungeonCell* targetTile) {
 
     while (currentTile != startTile) {
         path.push_back(currentTile);
-        //std::cout << currentTile->cell->transform()->position().x << ", "<<currentTile->cell->transform()->position().y << std::endl;
         currentTile = currentTile->parentCell;
     }
 
@@ -116,16 +115,12 @@ void AIComponent::RetracePath(DungeonCell* startTile, DungeonCell* targetTile) {
 }
 
 int AIComponent::GetDistance(DungeonCell* tileA, DungeonCell* tileB) {
-//    auto x = abs(tileA->cell->transform()->position().x - tileB->cell->transform()->position().x);
-//    auto y = abs(tileA->cell->transform()->position().y - tileB->cell->transform()->position().y);
-//    int distX = static_cast<int>(x);
-//    int distY = static_cast<int>(y);
-//
-//    // srt(2) * 10 = 14
-//    if (distX > distY) return 14 * distY + 10 * (distX - distY);
-//    else return 14 * distX + 10 * (distY - distX);
     sf::Vector2f pt1 = sf::Vector2f(tileA->cell->transform()->position().x, tileA->cell->transform()->position().y);
     sf::Vector2f pt2 = sf::Vector2f(tileB->cell->transform()->position().x, tileB->cell->transform()->position().y);
+    return static_cast<int>(GetDistance(pt1, pt2));
+}
+
+int AIComponent::GetDistance(sf::Vector2f pt1, sf::Vector2f pt2) {
     float currentDistance = sqrt(static_cast<float>(pow((pt2.x - pt1.x), 2) + pow((pt2.y - pt1.y), 2)));
     return static_cast<int>(currentDistance);
 }
