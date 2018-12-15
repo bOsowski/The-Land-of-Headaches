@@ -10,6 +10,7 @@
 #include "TextureComponent.hpp"
 #include "GameObject.hpp"
 #include "AnimationComponent.hpp"
+#include "World.hpp"
 
 InputComponent::InputComponent()
 :
@@ -38,6 +39,11 @@ void InputComponent::update(float deltaTime) {
     else{
         transform.move(NONE.value(), deltaTime);
     }
+
+//    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
+//        auto mousePos = sf::Mouse::getPosition(World::instance().window());
+//        std::cout<<"Mouse was clicked at "<< mousePos.x << ", " << mousePos.y <<std::endl;
+//    }
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 //        b2BodyDef* bulletBodyDef = new b2BodyDef();

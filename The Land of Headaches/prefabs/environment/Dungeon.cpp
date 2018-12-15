@@ -13,12 +13,12 @@ Dungeon::Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _m
     roomCreationAttempts(_roomCreationAttempts)
     {
         printf("creating rooms.\n");
- //       createRooms();
+        //createRooms();
 //        printf("created rooms.\n");
 //        printf("creating mazes.\n");
         createMazes();
 //        printf("created mazes.\n");
-      //  createWalls();
+        createWalls();
 
     }
 

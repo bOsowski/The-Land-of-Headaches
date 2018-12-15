@@ -56,7 +56,7 @@ Player::Player() {
     b2FixtureDef* fixtureDef = new b2FixtureDef();
     fixtureDef->shape = collisionShape;
     fixtureDef->friction = 0;
-    gameObject->transform()->body->CreateFixture(fixtureDef);
+    //gameObject->transform()->body->CreateFixture(fixtureDef);
     gameObject->instantiate();
 }
 
