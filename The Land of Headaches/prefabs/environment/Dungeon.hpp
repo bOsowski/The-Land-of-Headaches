@@ -16,7 +16,6 @@ public:
     std::map<sf::Vector2f*, DungeonCell*> dungeonCells;
     std::vector<DungeonRoom*> dungeonRooms;
     DungeonMaze* maze;
-    DungeonCell* lastCell;
 
     Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _maxRoomSize, unsigned int _roomCreationAttempts);
 

@@ -17,8 +17,8 @@ DungeonRoom::DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, s
         bounds.height = getRandom(minRoomSize, maxRoomSize);
         std::cout<<"Bound height = "<<bounds.height<<std::endl;
         std::cout<<"Bound width = "<<bounds.width<<std::endl;
-        int x = ((getRandom(parentArea->left, (parentArea->left + parentArea->width - bounds.width*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
-        int y = ((getRandom(parentArea->top-parentArea->height+bounds.height*tileSize.x, (parentArea->top-bounds.height*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
+        float x = ((getRandom(parentArea->left, (parentArea->left + parentArea->width - bounds.width*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
+        float y = ((getRandom(parentArea->top-parentArea->height+bounds.height*tileSize.x, (parentArea->top-bounds.height*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
         bounds.left = x;
         bounds.top = y;
     }
@@ -26,10 +26,9 @@ DungeonRoom::DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, s
     bool DungeonRoom::create(){
         //check if the generated room is colliding with other rooms
 
-        for (auto &otherRoom: *dungeonRooms) {
-            std::cout<<"first room height ="<<otherRoom->bounds.height<<" width="<<otherRoom->bounds.width<<" left="<<otherRoom->bounds.left<<" top="<<otherRoom->bounds.top<<std::endl;
-            std::cout<<"second room height ="<<bounds.height<<" width="<<bounds.width<<" left="<<bounds.left<<" top="<<bounds.top<<std::endl;
-            if (bounds.intersects(otherRoom->bounds) || otherRoom->bounds.intersects(bounds)) {
+        for (auto otherRoom: *dungeonRooms) {
+            std::cout<<"Rooms intersect? " << bounds.intersects(otherRoom->bounds) << "\n";
+            if (bounds.intersects(otherRoom->bounds)) {
                 printf("Failed to create a room. Room intersects.\n");
                 return false;
             }

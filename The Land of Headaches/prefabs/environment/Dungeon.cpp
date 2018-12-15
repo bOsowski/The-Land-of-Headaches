@@ -13,11 +13,11 @@ Dungeon::Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _m
     roomCreationAttempts(_roomCreationAttempts)
     {
         printf("creating rooms.\n");
-        //createRooms();
-//        printf("created rooms.\n");
-//        printf("creating mazes.\n");
+        createRooms();
+        printf("created rooms.\n");
+        printf("creating mazes.\n");
         createMazes();
-//        printf("created mazes.\n");
+        printf("created mazes.\n");
         createWalls();
 
     }
@@ -51,7 +51,6 @@ Dungeon::Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _m
         maze = new DungeonMaze(&bounds, &dungeonRooms);
         for(auto& mazeCell: maze->cells){
             dungeonCells.insert(std::pair<sf::Vector2f*, DungeonCell*>(mazeCell.first, mazeCell.second));
-            lastCell = mazeCell.second;
         }
     }
 

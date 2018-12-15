@@ -10,8 +10,7 @@
 
 class GameObject;
 
- //sf::Vector2i tileSize = sf::Vector2i(32,32);
- const sf::Vector2f tileSize {32,32};
+ const sf::Vector2i tileSize {32,32};
 
  int getRandom();
 
