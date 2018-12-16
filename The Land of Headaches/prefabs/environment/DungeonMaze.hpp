@@ -15,14 +15,14 @@
 
 class DungeonMaze {
 public:
-    DungeonMaze(sf::IntRect* bounds, std::vector<DungeonRoom*>* _dungeonRooms);
+    DungeonMaze(sf::FloatRect* bounds, std::vector<DungeonRoom*>* _dungeonRooms);
 
     std::map<sf::Vector2f*, DungeonCell*> cells;
 
     void create();
 
 private:
-    sf::IntRect* parentArea;
+    sf::FloatRect* parentArea;
     std::vector<DungeonRoom*>* dungeonRooms;
 
 

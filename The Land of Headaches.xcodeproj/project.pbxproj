@@ -19,6 +19,7 @@
 		7D939097745B35130CD01BAB /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939B4E89658A8761343B1A /* World.cpp */; };
 		7D9390B27AFC6676524E15D4 /* InfluenceComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939702740E47FB9EE95AC0 /* InfluenceComponent.cpp */; };
 		7D93918017CF9537D407B84F /* SFMLDebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93956C207954354F169AE6 /* SFMLDebugDraw.cpp */; };
+		7D93918F149D85EF83CD8FB0 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9391F67AFEBC6B049010BE /* Enemy.cpp */; };
 		7D9391EBCB5B64002D5B4FF6 /* DungeonCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939FCC7D334E3DD79BBA4A /* DungeonCell.cpp */; };
 		7D939384F0E7375A53E2EE6F /* AnimationComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D93995D4D00164917804B34 /* AnimationComponent.cpp */; };
 		7D93951D09675BF9AEA1428F /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D939CBE270F791D4CCBF476 /* GameObject.cpp */; };
@@ -59,6 +60,7 @@
 		7D9391955146D890B65F5EE3 /* utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utils.hpp; sourceTree = "<group>"; };
 		7D9391B7ACE6FB9D2C1F1F71 /* InputComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputComponent.hpp; sourceTree = "<group>"; };
 		7D9391BEA19F5E9275389978 /* TransformComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransformComponent.hpp; sourceTree = "<group>"; };
+		7D9391F67AFEBC6B049010BE /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		7D9392B361521376BE94A079 /* TextureComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureComponent.hpp; sourceTree = "<group>"; };
 		7D93931DE24ACDB8EF7ACE99 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		7D9393637D1281F1FB5BEC05 /* GameObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		7D9399A045C298BD24E234D5 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		7D939A70BADD947D9804203E /* BaseComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseComponent.cpp; sourceTree = "<group>"; };
 		7D939AF1F225F93DEB0D1152 /* AssetManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AssetManager.hpp; sourceTree = "<group>"; };
+		7D939B1362146BD9B1E8886D /* Enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
 		7D939B4E89658A8761343B1A /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		7D939B5F2223A7D794A4686E /* InputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputComponent.cpp; sourceTree = "<group>"; };
 		7D939BE69039892F461F4BF9 /* AbstractSoundComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractSoundComponent.cpp; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				0CC7DD6C21C0814A00E002B1 /* environment */,
 				7D93931DE24ACDB8EF7ACE99 /* Player.cpp */,
 				7D939FEB170EEA7D6B6B6C5C /* Player.hpp */,
+				7D9391F67AFEBC6B049010BE /* Enemy.cpp */,
+				7D939B1362146BD9B1E8886D /* Enemy.hpp */,
 			);
 			path = prefabs;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 				E1D0CF9059F4602684669FD6 /* Dungeon.cpp in Sources */,
 				E1D0C9D8B11ED00D82CA9FA7 /* DungeonMaze.cpp in Sources */,
 				E1D0CF8E927B26B14171EFDE /* DungeonRoom.cpp in Sources */,
+				7D93918F149D85EF83CD8FB0 /* Enemy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

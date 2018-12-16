@@ -5,13 +5,13 @@
 
 #include "DungeonRoom.hpp"
 
-DungeonRoom::DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, sf::IntRect *_parentArea, std::vector<DungeonRoom*>* _dungeonRooms)
+DungeonRoom::DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, sf::FloatRect *_parentArea, std::vector<DungeonRoom*>* _dungeonRooms)
     :
     minRoomSize(_minRoomSize),
     maxRoomSize(_maxRoomSize),
     parentArea(_parentArea),
     dungeonRooms(_dungeonRooms),
-    bounds(sf::IntRect())
+    bounds(sf::FloatRect())
     {
         bounds.width = getRandom(minRoomSize, maxRoomSize);
         bounds.height = getRandom(minRoomSize, maxRoomSize);
@@ -23,12 +23,18 @@ DungeonRoom::DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, s
         bounds.top = y;
     }
 
-    bool DungeonRoom::create(){
+// Returns true if two rectangles (l1, r1) and (l2, r2) overlap
+bool doOverlap(sf::FloatRect RectA, sf::FloatRect RectB) {
+    return (RectA.left < RectB.left+RectB.width && RectA.left+RectA.width > RectB.left &&
+            RectA.top > RectB.top-RectB.height && RectA.top-RectA.height < RectB.top);
+}
+
+        bool DungeonRoom::create(){
         //check if the generated room is colliding with other rooms
 
         for (auto otherRoom: *dungeonRooms) {
-            std::cout<<"Rooms intersect? " << bounds.intersects(otherRoom->bounds) << "\n";
-            if (bounds.intersects(otherRoom->bounds)) {
+            //std::cout<<"Rooms intersect? " << doOverlap(bounds, otherRoom->bounds) << "\n";
+            if (doOverlap(bounds, otherRoom->bounds)) {
                 printf("Failed to create a room. Room intersects.\n");
                 return false;
             }

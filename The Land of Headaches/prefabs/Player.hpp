@@ -10,9 +10,14 @@
 
 class Player{
 public:
-    Player();
     GameObject* gameObject;
+    static Player& instance(){
+        static Player* instance = new Player();
+        return *instance;
+    }
 
+private:
+    Player();
 };
 
 #endif //THE_LAND_OF_HEADACHES_PLAYER_HPP

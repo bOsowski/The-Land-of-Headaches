@@ -6,8 +6,8 @@
 #include "Dungeon.hpp"
 #include "utils.hpp"
 
-Dungeon::Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _maxRoomSize, unsigned int _roomCreationAttempts):
-    bounds(sf::IntRect(_bounds.left, _bounds.top, _bounds.width*tileSize.x,_bounds.height*tileSize.y)),
+Dungeon::Dungeon(sf::FloatRect _bounds, unsigned int _minRoomSize, unsigned int _maxRoomSize, unsigned int _roomCreationAttempts):
+    bounds(sf::FloatRect(_bounds.left, _bounds.top, _bounds.width*tileSize.x,_bounds.height*tileSize.y)),
     minRoomSize(_minRoomSize),
     maxRoomSize(_maxRoomSize),
     roomCreationAttempts(_roomCreationAttempts)
