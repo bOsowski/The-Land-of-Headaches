@@ -7,6 +7,8 @@
 #define THE_LAND_OF_HEADACHES_UTILS_HPP
 
 #include <cmath>
+#include <Box2D/Common/b2Math.h>
+#include <SFML/Audio.hpp>
 
 class GameObject;
 
@@ -29,6 +31,8 @@ class GameObject;
 //b2Vec2* convertVector(sf::Vector2f other){
 //    return new b2Vec2(other.x, other.y);
 //}
+
+float distance(const b2Vec2& a, const b2Vec2& b);
 
 sf::Vector2f normalize(sf::Vector2f vector) ;
 

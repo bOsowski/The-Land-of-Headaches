@@ -5,6 +5,8 @@
 
 #include "DungeonCell.hpp"
 #include "TextureComponent.hpp"
+#include "AnimationComponent.hpp"
+#include "Player.hpp"
 
 void DungeonCell::addWall(Direction direction) {
     b2BodyDef* wallBody = new b2BodyDef();
@@ -55,7 +57,33 @@ DungeonCell::DungeonCell(sf::Vector2f position)
     cellBody->position = b2Vec2(position.x, position.y);
     TransformComponent* cellTransformComponent = new TransformComponent(cellBody);
     cell = new GameObject(cellTransformComponent, -1);
-    TextureComponent* cellTextureComponent = new TextureComponent("floor4.png");
+    TextureComponent* cellTextureComponent;
+    if(getRandom(1,100) < 5){
+        cellTextureComponent = new AnimationComponent("floorSpikes.png", 0.1, 4);
+        class Spikes : public BaseComponent{
+        public:
+            Spikes() : BaseComponent("Spikes"){
+
+            }
+            void update(float deltaTime){
+                if(distance(delegate->transform()->position(), Player::instance().gameObject->transform()->position()) < tileSize.x/2){
+
+                }
+                else{
+                    AnimationComponent* animationComponent = (AnimationComponent *) delegate->getComponents().at("TextureComponent");
+                    animationComponent->currentFrame = 0;
+                    animationComponent->timer = 0;
+                }
+            }
+
+            void render(sf::RenderWindow& window){}
+        };
+        Spikes* spikes = new Spikes();
+        cell->addComponent(spikes);
+    }
+    else{
+        cellTextureComponent = new TextureComponent("floor4.png");
+    }
     cell->addComponent(cellTextureComponent);
     cell->instantiate();
     //printf("Created cell at (%f,%f)\n", cell->transform()->position().x, cell->transform()->position().y);

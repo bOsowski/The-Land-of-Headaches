@@ -14,7 +14,6 @@ public:
 
     void update(float deltaTime);
 
-private:
     const float frameChangeTime;
     const int frameWidth;
     const int frameHeight;

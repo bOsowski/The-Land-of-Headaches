@@ -7,7 +7,9 @@
 #define THE_LAND_OF_HEADACHES_UTILS_HPP
 
 #include <cmath>
+#include "utils.hpp"
 #include <SFML/Audio.hpp>
+#include <Box2D/Common/b2Math.h>
 
 sf::Vector2i tileSize = sf::Vector2i(32,32);
 
@@ -46,6 +48,10 @@ sf::Vector2f normalize(sf::Vector2f vector) {
  float dot(const sf::Vector2f& lv, const sf::Vector2f& rv)
 {
     return lv.x * rv.x + lv.y * rv.y;
+}
+
+float distance(const b2Vec2& a, const b2Vec2& b){
+    return sqrt(static_cast<float>(pow((b.x - (a.x)), 2) + pow((b.y - a.y), 2)));
 }
 
  float length(const sf::Vector2f& source)
