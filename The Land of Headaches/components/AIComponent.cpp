@@ -12,25 +12,13 @@ AIComponent::AIComponent() : BaseComponent("AIComponent") {
 }
 
 void AIComponent::update(float deltaTime) {
-    //SetTargetPosition(sf::Vector2f((Player::player->transform()->position()).x, (Player::player->transform()->position()).y));
     level->resetNodes();
     UpdatePathFinding();
 
-    DungeonCell* target = path[0];
-    sf::Vector2f position = sf::Vector2f(target->cell->transform()->position().x, target->cell->transform()->position().y+tileSize.y/2);
-    sf::Vector2f direction = position - sf::Vector2f(delegate->transform()->position().x-tileSize.x/2, delegate->transform()->position().y+tileSize.y/2);
-
-    std::cout<<"direction to set before = "<<direction.x<<", " << direction.y<<"\n";
-//
-//    //prevent cutting corners
-//    if(abs(direction.x) > abs(direction.y)){
-//        direction.y = 0;
-//    }
-//    else{
-//        direction.x = 0;
-//    }
-    std::cout<<"direction to set after = "<<direction.x<<", " << direction.y<<"\n";
-
+    sf::Vector2f selfPosition = sf::Vector2f(delegate->transform()->position().x, delegate->transform()->position().y);
+    sf::Vector2f target = sf::Vector2f(path[0]->cell->transform()->position().x-tileSize.x/2, path[0]->cell->transform()->position().y-tileSize.y/2);
+    sf::Vector2f position = sf::Vector2f(target.x, target.y);
+    sf::Vector2f direction = position - sf::Vector2f(selfPosition.x-tileSize.x/2, selfPosition.y);
     sf::Vector2f normalized = normalize(direction) * delegate->transform()->movementSpeed;
     std::cout<<"Velocity to set = "<<normalized.x<<", " << normalized.y<<"\n";
     delegate->transform()->body->SetLinearVelocity((b2Vec2(normalized.x,normalized.y)));

@@ -21,12 +21,13 @@
 #include "TextureComponent.hpp"
 #include "AIComponent.hpp"
 #include "Dungeon.hpp"
+#include "Enemy.hpp"
 
 class Dungeon;
 
 int main(int, char const**) {
-    Player player = Player();
-
+    //Player player = Player();
+    Player::instance();
 
     sf::Music* music = new sf::Music();
     if (!music->openFromFile(resourcePath()+"audio/dungeon.ogg"))
@@ -40,18 +41,19 @@ int main(int, char const**) {
     Dungeon* dungeon = new Dungeon(sf::IntRect(128,512-128,10,10), 2, 4, 2);
     std::cout<<"Dungeon cell size = "<<dungeon->dungeonCells.size()<<std::endl;
 
-    b2BodyDef* seekingMissileBodyDef = new b2BodyDef();
-    seekingMissileBodyDef->type = b2BodyType::b2_dynamicBody;
-    seekingMissileBodyDef->position = b2Vec2(200, 396);
-    GameObject* seekingMissile = new GameObject(new TransformComponent(seekingMissileBodyDef, 1000), 0);
-    TextureComponent* seekingMissileTexture = new TextureComponent("coin_0.png");
-    seekingMissile->addComponent(seekingMissileTexture);
-    AIComponent* aiComponent = new AIComponent();
-    aiComponent->SetTargetPosition(player.gameObject->transform()->position());
-    aiComponent->SetLevel(dungeon);
+//    b2BodyDef* seekingMissileBodyDef = new b2BodyDef();
+////    seekingMissileBodyDef->type = b2BodyType::b2_dynamicBody;
+////    seekingMissileBodyDef->position = b2Vec2(200, 396);
+////    GameObject* seekingMissile = new GameObject(new TransformComponent(seekingMissileBodyDef, 1000), 0);
+////    TextureComponent* seekingMissileTexture = new TextureComponent("coin_0.png");
+////    seekingMissile->addComponent(seekingMissileTexture);
+////    AIComponent* aiComponent = new AIComponent();
+////    aiComponent->SetTargetPosition(player.gameObject->transform()->position());
+////    aiComponent->SetLevel(dungeon);
+    //seekingMissile->addComponent(aiComponent);
+    //seekingMissile->instantiate();
 
-    seekingMissile->addComponent(aiComponent);
-    seekingMissile->instantiate();
+    Enemy enemy = Enemy(sf::Vector2f(200, 346), dungeon);
 
     while(world.isOpened()){
         world.update();

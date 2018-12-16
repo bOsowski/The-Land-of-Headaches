@@ -26,7 +26,6 @@ public:
         return sprite->getTexture()->getSize();
     }
 
-protected:
     sf::Sprite* sprite;
 
 private:
