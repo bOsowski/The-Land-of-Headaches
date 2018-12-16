@@ -29,6 +29,8 @@ int main(int, char const**) {
     //Player player = Player();
     Player::instance();
 
+
+
     sf::Music* music = new sf::Music();
     if (!music->openFromFile(resourcePath()+"audio/dungeon.ogg"))
         return -1; // error
@@ -36,7 +38,38 @@ int main(int, char const**) {
 
     World& world = World::instance();
 
-    srand((time(NULL)));
+
+    //send
+    std::string message = "connected";
+
+    int hostSocket = -1;
+//
+    // UDP socket:
+    sf::IpAddress recipient = sf::IpAddress::LocalHost;
+    world.socket.setBlocking(false);
+    for(unsigned short i = 0; i<65535; i++){
+        if (world.socket.send(message.c_str(), message.size(), recipient, i) != sf::Socket::Done) {}
+        else if(i != world.socket.getLocalPort()){
+                char buffer[1024];
+                std::size_t received = 0;
+                sf::IpAddress sender;
+                unsigned short port;
+                if (world.socket.receive(buffer, sizeof(buffer), received, sender, port) != sf::Socket::Done) {
+                    world.seed = static_cast<long>(22);
+                } else {
+                    //world.seed = atol(buffer);
+                    std::cout << "Received seed = " << "?" << "\n";
+                }
+        }
+    }
+//        printf("Send on port %hu\n", i);
+
+
+
+
+    srand(static_cast<unsigned int>(world.seed));
+
+
     // Program entry point.
     Dungeon* dungeon = new Dungeon(sf::FloatRect(128,512-128,10,10), 2, 2, 9);
     std::cout<<"Dungeon cell size = "<<dungeon->dungeonCells.size()<<std::endl;

@@ -24,11 +24,11 @@ AssetManager::AssetManager() {
                 if(fileName == "." || fileName == "..")continue;
 
                 std::string full_path = texturesPath + fileName;
-                std::cout << "Trying to load from " + full_path << std::endl;
+                //std::cout << "Trying to load from " + full_path << std::endl;
                 sf::Texture texture;
                 if ( texture.loadFromFile(full_path)) {
                     textures.insert(std::pair<std::string, sf::Texture>(fileName, texture));
-                    std::cout << "Loaded '" + fileName << "'" << std::endl<<std::endl;
+                    //std::cout << "Loaded '" + fileName << "'" << std::endl<<std::endl;
                 }
                 else{
                     std::cout << "Failed to load '" + fileName << "'" << std::endl<<std::endl;
@@ -53,11 +53,11 @@ AssetManager::AssetManager() {
                 if(fileName == "." || fileName == "..")continue;
 
                 std::string full_path = audioPath + fileName;
-                std::cout << "Trying to load from " + full_path << std::endl;
+                //std::cout << "Trying to load from " + full_path << std::endl;
                 sf::SoundBuffer* soundBuffer = new sf::SoundBuffer();
                 if ( soundBuffer->loadFromFile(full_path)) {
                     sounds.insert(std::pair<std::string, sf::SoundBuffer*>(fileName, soundBuffer));
-                    std::cout << "Loaded '" + fileName << "'" << std::endl<<std::endl;
+                   //std::cout << "Loaded '" + fileName << "'" << std::endl<<std::endl;
                 }
                 else{
                     std::cout << "Failed to load '" + fileName << "'" << std::endl<<std::endl;

@@ -15,8 +15,8 @@ DungeonRoom::DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, s
     {
         bounds.width = getRandom(minRoomSize, maxRoomSize);
         bounds.height = getRandom(minRoomSize, maxRoomSize);
-        std::cout<<"Bound height = "<<bounds.height<<std::endl;
-        std::cout<<"Bound width = "<<bounds.width<<std::endl;
+       // std::cout<<"Bound height = "<<bounds.height<<std::endl;
+        //std::cout<<"Bound width = "<<bounds.width<<std::endl;
         float x = ((getRandom(parentArea->left, (parentArea->left + parentArea->width - bounds.width*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
         float y = ((getRandom(parentArea->top-parentArea->height+bounds.height*tileSize.x, (parentArea->top-bounds.height*tileSize.x)) + tileSize.x/2) / tileSize.x) * tileSize.x;
         bounds.left = x;
@@ -35,7 +35,7 @@ bool doOverlap(sf::FloatRect RectA, sf::FloatRect RectB) {
         for (auto otherRoom: *dungeonRooms) {
             //std::cout<<"Rooms intersect? " << doOverlap(bounds, otherRoom->bounds) << "\n";
             if (doOverlap(bounds, otherRoom->bounds)) {
-                printf("Failed to create a room. Room intersects.\n");
+                //printf("Failed to create a room. Room intersects.\n");
                 return false;
             }
         }
@@ -50,7 +50,7 @@ bool doOverlap(sf::FloatRect RectA, sf::FloatRect RectB) {
             }
             x ++;
         }
-        printf("Successfully created a room.\n");
+        //printf("Successfully created a room.\n");
         return true;
     }
 

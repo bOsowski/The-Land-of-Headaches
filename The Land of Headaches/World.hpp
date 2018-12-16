@@ -10,6 +10,8 @@
 #include <SFML/System/Clock.hpp>
 #include <iostream>     //todo: remove this later.
 #include <Box2D/Dynamics/b2World.h>
+#include <SFML/Network/UdpSocket.hpp>
+#include <SFML/Network/TcpListener.hpp>
 #include "GameObject.hpp"
 
 class World {
@@ -33,6 +35,10 @@ public:
 
     b2World physicsWorld;
 
+    sf::UdpSocket socket;
+    std::vector<unsigned short> receivers;
+
+    unsigned long seed;
 private:
     float deltaTime;
 
@@ -45,6 +51,8 @@ private:
     sf::Clock clock;
 
     void sortGameObjects();
+
+
 
 };
 

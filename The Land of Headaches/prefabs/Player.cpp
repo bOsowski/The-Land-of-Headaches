@@ -39,7 +39,7 @@ Player::Player() {
     b2BodyDef* bodyDef = new b2BodyDef();
     bodyDef->position = b2Vec2(World::instance().window().getSize().x/2,World::instance().window().getSize().y/2);
     bodyDef->type = b2BodyType::b2_dynamicBody;
-    TransformComponent* transformComponent = new TransformComponent(bodyDef, 40000);
+    TransformComponent* transformComponent = new TransformComponent(bodyDef, 10);
     gameObject = new GameObject(transformComponent, 0);
     AnimatorComponent* animatorComponent = new AnimatorComponent("mage", 0.2, 8);
     gameObject->addComponent(animatorComponent);

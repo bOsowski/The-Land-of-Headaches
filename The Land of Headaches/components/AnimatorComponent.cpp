@@ -14,7 +14,7 @@ AnimatorComponent::AnimatorComponent(std::string stateAnimationName, float _fram
         sprites.insert(std::pair<State, std::map<Direction, sf::Sprite*>>(State(i), *new std::map<Direction, sf::Sprite*>()));
         for(int j = 0; j < Direction::length()-1; j++){
             sprites.at(State(i)).insert(std::pair<Direction, sf::Sprite*>(Direction(j), new sf::Sprite(AssetManager::instance().textures.at(stateAnimationName+"_"+State(i).name()+"_"+Direction(j).name()+".png"))));
-            std::cout<<"map: "<<State(i).name()<<" >> "<<Direction(j).name() << ".\n";
+            //std::cout<<"map: "<<State(i).name()<<" >> "<<Direction(j).name() << ".\n";
         }
     }
 }

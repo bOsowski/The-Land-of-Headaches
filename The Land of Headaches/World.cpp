@@ -14,9 +14,33 @@ physicsWorld(b2World(b2Vec2()))
 {
     _window.setActive(true);
     physicsWorld.SetAllowSleeping(false);
+    socket.bind(sf::Socket::AnyPort, sf::IpAddress::LocalHost);
 }
 
 void World::update() {
+    char  buffer[1024];
+    std::size_t received = 0;
+
+// UDP socket:
+    sf::IpAddress sender;
+    unsigned short port;
+    if (socket.receive(buffer, sizeof(buffer), received, sender, port) != sf::Socket::Done)
+    {
+        // error...
+    }
+    else{
+
+        std::cout<<"someone connected! message = " << buffer <<"\n";
+        receivers.push_back(port);
+
+        //if(buffer == (std::string("connected")).c_str()){
+        socket.send(reinterpret_cast<const void *>(seed), sizeof(reinterpret_cast<const void *>(seed)), sender, port);
+        std::cout<<"Sent back the seed: "<<seed<<"\n";
+        // }
+    }
+
+
+
     sf::Event event;
     while(_window.pollEvent(event)){
         // catch the resize events

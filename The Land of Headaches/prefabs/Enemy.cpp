@@ -13,7 +13,7 @@ Enemy::Enemy(sf::Vector2f position, Dungeon* level){
     b2BodyDef* bodyDef = new b2BodyDef();
     bodyDef->type = b2BodyType::b2_dynamicBody;
     bodyDef->position = level->dungeonCells.begin()->second->cell->transform()->position();
-    TransformComponent* transformComponent = new TransformComponent(bodyDef, 90);
+    TransformComponent* transformComponent = new TransformComponent(bodyDef, 5);
     gameObject = new GameObject(transformComponent, 0);
     AnimatorComponent* animatorComponent = new AnimatorComponent("mage", 0.2, 8);
     animatorComponent->sprite->setColor(sf::Color::Red);
