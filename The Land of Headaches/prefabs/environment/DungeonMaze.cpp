@@ -7,7 +7,7 @@
 #include "Direction.hpp"
 
 
-DungeonMaze::DungeonMaze(sf::IntRect* bounds, std::vector<DungeonRoom*>* _dungeonRooms):
+DungeonMaze::DungeonMaze(sf::FloatRect* bounds, std::vector<DungeonRoom*>* _dungeonRooms):
         dungeonRooms(_dungeonRooms),
         parentArea(bounds)
 {

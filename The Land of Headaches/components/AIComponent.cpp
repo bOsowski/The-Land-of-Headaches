@@ -20,7 +20,6 @@ void AIComponent::update(float deltaTime) {
     sf::Vector2f position = sf::Vector2f(target.x, target.y);
     sf::Vector2f direction = position - sf::Vector2f(selfPosition.x-tileSize.x/2, selfPosition.y);
     sf::Vector2f normalized = normalize(direction) * delegate->transform()->movementSpeed;
-    std::cout<<"Velocity to set = "<<normalized.x<<", " << normalized.y<<"\n";
     delegate->transform()->body->SetLinearVelocity((b2Vec2(normalized.x,normalized.y)));
 }
 

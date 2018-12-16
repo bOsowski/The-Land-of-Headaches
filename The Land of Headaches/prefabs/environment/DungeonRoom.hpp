@@ -12,14 +12,14 @@
 
 class DungeonRoom {
 public:
-    DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, sf::IntRect *_parentArea, std::vector<DungeonRoom*>* _dungeonRooms);
+    DungeonRoom(unsigned int _minRoomSize, unsigned int _maxRoomSize, sf::FloatRect *_parentArea, std::vector<DungeonRoom*>* _dungeonRooms);
 
     bool create();
 
     unsigned int minRoomSize;
     unsigned int maxRoomSize;
-    sf::IntRect* parentArea;
-    sf::IntRect bounds;
+    sf::FloatRect* parentArea;
+    sf::FloatRect bounds;
 
     std::vector<DungeonRoom*>* dungeonRooms;
     std::map<sf::Vector2f*, DungeonCell*> cells;

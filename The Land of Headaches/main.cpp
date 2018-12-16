@@ -36,23 +36,10 @@ int main(int, char const**) {
 
     World& world = World::instance();
 
-    //srand((time(NULL)));
+    srand((time(NULL)));
     // Program entry point.
-    Dungeon* dungeon = new Dungeon(sf::IntRect(128,512-128,10,10), 2, 4, 2);
+    Dungeon* dungeon = new Dungeon(sf::FloatRect(128,512-128,10,10), 2, 2, 9);
     std::cout<<"Dungeon cell size = "<<dungeon->dungeonCells.size()<<std::endl;
-
-//    b2BodyDef* seekingMissileBodyDef = new b2BodyDef();
-////    seekingMissileBodyDef->type = b2BodyType::b2_dynamicBody;
-////    seekingMissileBodyDef->position = b2Vec2(200, 396);
-////    GameObject* seekingMissile = new GameObject(new TransformComponent(seekingMissileBodyDef, 1000), 0);
-////    TextureComponent* seekingMissileTexture = new TextureComponent("coin_0.png");
-////    seekingMissile->addComponent(seekingMissileTexture);
-////    AIComponent* aiComponent = new AIComponent();
-////    aiComponent->SetTargetPosition(player.gameObject->transform()->position());
-////    aiComponent->SetLevel(dungeon);
-    //seekingMissile->addComponent(aiComponent);
-    //seekingMissile->instantiate();
-
     Enemy enemy = Enemy(sf::Vector2f(200, 346), dungeon);
 
     while(world.isOpened()){

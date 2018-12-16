@@ -17,12 +17,12 @@ public:
     std::vector<DungeonRoom*> dungeonRooms;
     DungeonMaze* maze;
 
-    Dungeon(sf::IntRect _bounds, unsigned int _minRoomSize, unsigned int _maxRoomSize, unsigned int _roomCreationAttempts);
+    Dungeon(sf::FloatRect _bounds, unsigned int _minRoomSize, unsigned int _maxRoomSize, unsigned int _roomCreationAttempts);
 
     void resetNodes();
 
 private:
-    sf::IntRect bounds;
+    sf::FloatRect bounds;
     unsigned int minRoomSize;
     unsigned int maxRoomSize;
     unsigned int roomCreationAttempts;
